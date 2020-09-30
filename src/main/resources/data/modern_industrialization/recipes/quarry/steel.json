@@ -1,0 +1,42 @@
+{
+  "type": "modern_industrialization:quarry",
+  "eu": 4,
+  "duration": 600,
+  "item_inputs": {
+    "item": "modern_industrialization:pipe_item_steel",
+    "amount": 1,
+    "probability": 0.2
+  },
+  "item_outputs": [
+    {
+      "item": "modern_industrialization:antimony_ore",
+      "amount": 5,
+      "probability": 0.04
+    },
+    {
+      "item": "minecraft:diamond_ore",
+      "amount": 6,
+      "probability": 0.005
+    },
+    {
+      "item": "modern_industrialization:lead_ore",
+      "amount": 10,
+      "probability": 0.03
+    },
+    {
+      "item": "modern_industrialization:nickel_ore",
+      "amount": 10,
+      "probability": 0.03
+    },
+    {
+      "item": "modern_industrialization:bauxite_ore",
+      "amount": 8,
+      "probability": 0.05
+    },
+    {
+      "item": "modern_industrialization:salt_ore",
+      "amount": 4,
+      "probability": 0.05
+    }
+  ]
+}

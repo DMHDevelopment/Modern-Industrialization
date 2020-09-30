@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "modern_industrialization",
-  "version": "0.1.4",
+  "version": "${version}",
 
   "name": "Modern Industrialization",
   "description": "A modern industrial mod for Minecraft.",
@@ -26,8 +26,9 @@
       "aztech.modern_industrialization.ModernIndustrializationClient"
     ],
     "rei_plugins": [
-      "aztech.modern_industrialization.compat.rei.machine_recipe.MachineRecipePlugin",
-      "aztech.modern_industrialization.compat.rei.forgehammer_recipe.ForgeHammerRecipePlugin"
+      "aztech.modern_industrialization.compat.rei.fluid_fuels.FluidFuelsPlugin",
+      "aztech.modern_industrialization.compat.rei.forgehammer_recipe.ForgeHammerRecipePlugin",
+      "aztech.modern_industrialization.compat.rei.machine_recipe.MachineRecipePlugin"
     ]
   },
   "mixins": [

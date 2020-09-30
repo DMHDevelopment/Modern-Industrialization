@@ -1,16 +1,20 @@
 {
     "type": "minecraft:crafting_shaped",
     "pattern": [
-        "###",
-        "###",
-        "###"
+        "yxx",
+        "xxx",
+        "xxx"
     ],
-    "key": {
-        "#": {
-            "item": "modern_industrialization:aluminum_ingot"
-        }
-    },
     "result": {
-        "item": "modern_industrialization:aluminum_block"
+        "item": "modern_industrialization:aluminum_block",
+        "count": 1
+    },
+    "key": {
+        "y": {
+            "item": "modern_industrialization:aluminum_ingot"
+        },
+        "x": {
+            "tag": "c:aluminum_ingots"
+        }
     }
 }

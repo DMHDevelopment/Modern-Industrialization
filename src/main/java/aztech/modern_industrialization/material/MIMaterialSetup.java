@@ -8,6 +8,8 @@ import net.minecraft.block.Block;
 import net.minecraft.block.Material;
 import net.minecraft.block.MaterialColor;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.BuiltinRegistries;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.decorator.Decorator;
 import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
@@ -31,13 +33,13 @@ public class MIMaterialSetup {
             for (String block_type : material.getBlockType()) {
 
                 Block block = null;
-                if (block_type.equals("block")) {
+                if (!block_type.equals("ore")) {
                     block = new MaterialBlock(FabricBlockSettings.of(METAL_MATERIAL).hardness(5.0f)
                             .resistance(6.0f)
                             .breakByTool(FabricToolTags.PICKAXES, 0)
                             .requiresTool(), material.getId(), "block"
                     );
-                } else if (block_type.equals("ore")) {
+                } else {
                     block = new MaterialBlock(FabricBlockSettings.of(STONE_MATERIAL).hardness(3.0f)
                             .resistance(3.0f)
                             .breakByTool(FabricToolTags.PICKAXES, 1)
@@ -60,7 +62,9 @@ public class MIMaterialSetup {
                                 material.getMaxYLevel()))) // max y level
                         .spreadHorizontally()
                         .repeat(material.getVeinsPerChunk()); // number of veins per chunk
-                ORE_GENERATORS.put(new MIIdentifier("ore_generator_" + material.getId()), ore_generator);
+                Identifier oregen_id = new MIIdentifier("ore_generator_" + material.getId());
+                ORE_GENERATORS.put(oregen_id, ore_generator);
+                Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, oregen_id, ore_generator);
             }
         }
     }

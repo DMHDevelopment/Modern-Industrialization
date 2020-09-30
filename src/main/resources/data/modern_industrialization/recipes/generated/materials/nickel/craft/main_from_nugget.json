@@ -1,16 +1,20 @@
 {
     "type": "minecraft:crafting_shaped",
     "pattern": [
-        "###",
-        "###",
-        "###"
+        "yxx",
+        "xxx",
+        "xxx"
     ],
-    "key": {
-        "#": {
-            "item": "modern_industrialization:nickel_nugget"
-        }
-    },
     "result": {
-        "item": "modern_industrialization:nickel_ingot"
+        "item": "modern_industrialization:nickel_ingot",
+        "count": 1
+    },
+    "key": {
+        "y": {
+            "item": "modern_industrialization:nickel_nugget"
+        },
+        "x": {
+            "tag": "c:nickel_nuggets"
+        }
     }
 }

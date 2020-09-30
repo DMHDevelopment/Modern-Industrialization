@@ -19,6 +19,7 @@ public class MachineFactory {
     public BlockItem item;
     public BlockEntityType blockEntityType;
     public final MachineTier tier;
+    public final MachineRecipeType recipeType;
 
     public MachineModel machineModel;
     private String casing; // example: "bricked_bronze"
@@ -68,6 +69,11 @@ public class MachineFactory {
     int efficiencyBarDrawY;
     int efficiencyBarSizeX;
     int efficiencyBarSizeY;
+    boolean efficiencyBarDrawTooltip = true;
+
+    boolean hasEnergyBar = false;
+    int electricityBarX;
+    int electricityBarY;
 
     private int inputBucketCapacity = 16;
     private int outputBucketCapacity = 16;
@@ -87,7 +93,7 @@ public class MachineFactory {
             map.put(machineID, this);
         }
 
-        this.blockEntityConstructor = () -> blockEntityFactory.create(this, type);
+        this.blockEntityConstructor = () -> blockEntityFactory.create(this);
         if(type != null) {
             if(type instanceof FurnaceRecipeProxy) {
                 MIMachines.WORKSTATIONS_FURNACES.add(this);
@@ -95,6 +101,7 @@ public class MachineFactory {
                 MIMachines.RECIPE_TYPES.get(type).factories.add(this);
             }
         }
+        this.recipeType = type;
 
         this.inputSlots = inputSlots;
         this.outputSlots = outputSlots;
@@ -262,13 +269,37 @@ public class MachineFactory {
     }
 
     public MachineFactory setupEfficiencyBar(int x, int y, int drawX, int drawY, int sizeX, int sizeY) {
-        this.hasEfficiencyBar = true;
-        this.efficiencyBarX = x;
-        this.efficiencyBarY = y;
-        this.efficiencyBarDrawX = drawX;
-        this.efficiencyBarDrawY = drawY;
-        this.efficiencyBarSizeX = sizeX;
-        this.efficiencyBarSizeY = sizeY;
+        return setupEfficiencyBar(x, y, drawX, drawY, sizeX, sizeY, false);
+    }
+
+    public MachineFactory setupEfficiencyBar(int x, int y, int drawX, int drawY, int sizeX, int sizeY, boolean onlyElectric) {
+        if(!onlyElectric || tier.isElectric()) {
+            this.hasEfficiencyBar = true;
+            this.efficiencyBarX = x;
+            this.efficiencyBarY = y;
+            this.efficiencyBarDrawX = drawX;
+            this.efficiencyBarDrawY = drawY;
+            this.efficiencyBarSizeX = sizeX;
+            this.efficiencyBarSizeY = sizeY;
+        }
+        return this;
+    }
+
+    public MachineFactory setupElectricityBar(int x, int y) {
+        return setupElectricityBar(x, y, true);
+    }
+
+    public MachineFactory setupElectricityBar(int x, int y, boolean checkTier) {
+        if(!checkTier || tier.isElectric()) {
+            hasEnergyBar = true;
+            this.electricityBarX = x;
+            this.electricityBarY = y;
+        }
+        return this;
+    }
+
+    public MachineFactory hideEfficiencyTooltip() {
+        this.efficiencyBarDrawTooltip = false;
         return this;
     }
 

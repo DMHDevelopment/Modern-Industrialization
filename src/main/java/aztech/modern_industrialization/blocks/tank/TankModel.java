@@ -1,6 +1,7 @@
 package aztech.modern_industrialization.blocks.tank;
 
 import aztech.modern_industrialization.MIIdentifier;
+import aztech.modern_industrialization.blocks.creativetank.CreativeTankItem;
 import com.mojang.datafixers.util.Pair;
 import net.fabricmc.fabric.api.client.render.fluid.v1.FluidRenderHandler;
 import net.fabricmc.fabric.api.client.render.fluid.v1.FluidRenderHandlerRegistry;
@@ -24,6 +25,7 @@ import net.minecraft.client.texture.Sprite;
 import net.minecraft.client.texture.SpriteAtlasTexture;
 import net.minecraft.client.util.SpriteIdentifier;
 import net.minecraft.fluid.Fluid;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
@@ -44,7 +46,7 @@ public class TankModel implements UnbakedModel, FabricBakedModel, BakedModel {
     private Mesh tankMesh;
 
     public TankModel(String tankType) {
-        tankSpriteId = new SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEX, new MIIdentifier("blocks/tanks/" + tankType));
+        tankSpriteId = new SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE, new MIIdentifier("blocks/tanks/" + tankType));
     }
 
     @Override
@@ -66,10 +68,18 @@ public class TankModel implements UnbakedModel, FabricBakedModel, BakedModel {
     public void emitItemQuads(ItemStack stack, Supplier<Random> randomSupplier, RenderContext context) {
         context.meshConsumer().accept(tankMesh);
 
-        TankItem item = (TankItem) stack.getItem();
-        if(!item.isEmpty(stack)) {
-            float fillFraction = (float) item.getAmount(stack) / item.capacity;
-            drawFluid(context.getEmitter(), fillFraction, item.getFluid(stack).getRawFluid());
+        Item it = stack.getItem();
+        if(it instanceof TankItem) {
+            TankItem item = (TankItem) it;
+            if (!item.isEmpty(stack)) {
+                float fillFraction = (float) item.getAmount(stack) / item.capacity;
+                drawFluid(context.getEmitter(), fillFraction, item.getFluid(stack).getRawFluid());
+            }
+        } else if(it instanceof CreativeTankItem) {
+            CreativeTankItem item = (CreativeTankItem) it;
+            if(!item.isEmpty(stack)) {
+                drawFluid(context.getEmitter(), 1, item.getFluid(stack).getRawFluid());
+            }
         }
     }
 
@@ -79,10 +89,10 @@ public class TankModel implements UnbakedModel, FabricBakedModel, BakedModel {
             Sprite stillSprite = handler.getFluidSprites(null, null, null)[0];
             int color = 255 << 24 | handler.getFluidColor(null, null, null);
             for(Direction direction : Direction.values()) {
-                float topSpace = direction.getAxis().isHorizontal() ? 1 - fillFraction : 0;
+                float topSpace = direction.getAxis().isHorizontal() ? 1 - fillFraction + 0.01f : 0;
                 float depth = direction == Direction.UP ? 1 - fillFraction : 0;
                 emitter.material(translucentMaterial);
-                emitter.square(direction, 0, 0, 1, 1 - topSpace, depth);
+                emitter.square(direction, 0, 0, 1, 1 - topSpace, depth + 0.01f);
                 emitter.spriteBake(0, stillSprite, MutableQuadView.BAKE_LOCK_UV);
                 emitter.spriteColor(0, color, color, color, color);
                 emitter.emit();
@@ -152,7 +162,7 @@ public class TankModel implements UnbakedModel, FabricBakedModel, BakedModel {
         QuadEmitter emitter = builder.getEmitter();
         for(Direction direction : Direction.values()) {
             emitter.material(cutoutMaterial);
-            emitter.square(direction, 0, 0, 1, 1, -0.0001f);
+            emitter.square(direction, 0, 0, 1, 1, 0.0f);
             emitter.cullFace(direction);
             emitter.spriteBake(0, tankSprite, MutableQuadView.BAKE_LOCK_UV);
             emitter.spriteColor(0, -1, -1, -1, -1);

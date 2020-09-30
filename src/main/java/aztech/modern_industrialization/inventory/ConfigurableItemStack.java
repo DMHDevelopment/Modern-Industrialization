@@ -6,6 +6,7 @@ import net.minecraft.fluid.Fluid;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.util.math.Direction;
@@ -136,9 +137,13 @@ public class ConfigurableItemStack {
         onToggleLock();
     }
 
-    public void togglePlayerLock() {
+    public void togglePlayerLock(ItemStack cursorStack) {
         if(playerLockable) {
-            playerLocked = !playerLocked;
+            if(playerLocked && lockedItem == Items.AIR && !cursorStack.isEmpty()) {
+                lockedItem = cursorStack.getItem();
+            } else {
+                playerLocked = !playerLocked;
+            }
             onToggleLock();
         }
     }
@@ -149,6 +154,10 @@ public class ConfigurableItemStack {
         } else if(lockedItem == null) {
             lockedItem = stack.getItem();
         }
+    }
+
+    public boolean canPlayerLock() {
+        return playerLockable;
     }
 
     public CompoundTag writeToTag(CompoundTag tag) {
@@ -179,6 +188,22 @@ public class ConfigurableItemStack {
         playerExtract = tag.getBoolean("playerExtract");
         pipesInsert = tag.getBoolean("pipesInsert");
         pipesExtract = tag.getBoolean("pipesExtract");
+    }
+
+    /**
+     * Try locking the slot to the given item, return true if it succeeded
+      */
+    public boolean playerLock(Item item) {
+        if((stack.isEmpty() || stack.getItem() == item) && (lockedItem == null || lockedItem == Items.AIR)) {
+            lockedItem = item;
+            playerLocked = true;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean canPipesExtract() {
+        return pipesExtract;
     }
 
     public class ConfigurableItemSlot extends Slot {

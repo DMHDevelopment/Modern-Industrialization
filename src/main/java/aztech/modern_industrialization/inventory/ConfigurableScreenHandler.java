@@ -80,14 +80,7 @@ public abstract class ConfigurableScreenHandler extends ScreenHandler {
     public ItemStack onSlotClick(int i, int j, SlotActionType actionType, PlayerEntity playerEntity) {
         if(i >= 0) {
             Slot slot = this.slots.get(i);
-            if (slot instanceof LockingModeSlot) {
-                if(actionType != SlotActionType.PICKUP) {
-                    return ItemStack.EMPTY;
-                }
-                lockingMode = !lockingMode;
-                // sync locking state TODO: handle data re-sent
-                return new ItemStack(Items.DIAMOND, lockingMode ? 1 : 0);
-            } else if (slot instanceof ConfigurableFluidStack.ConfigurableFluidSlot) {
+            if (slot instanceof ConfigurableFluidStack.ConfigurableFluidSlot) {
                 if(actionType != SlotActionType.PICKUP) {
                     return ItemStack.EMPTY;
                 }
@@ -145,7 +138,7 @@ public abstract class ConfigurableScreenHandler extends ScreenHandler {
                     }
                     ConfigurableItemStack.ConfigurableItemSlot itemSlot = (ConfigurableItemStack.ConfigurableItemSlot) slot;
                     ConfigurableItemStack itemStack = itemSlot.getConfStack();
-                    itemStack.togglePlayerLock();
+                    itemStack.togglePlayerLock(playerInventory.getCursorStack());
                     return itemStack.getStack().copy();
                 }
             }
@@ -161,13 +154,17 @@ public abstract class ConfigurableScreenHandler extends ScreenHandler {
             if(!slot.canTakeItems(player)) return newStack;
             ItemStack originalStack = slot.getStack();
             newStack = originalStack.copy();
-            if(slotIndex < PLAYER_SLOTS) {
-                // from player to container inventory
+            if(slotIndex < PLAYER_SLOTS) { // from player to container inventory
                 if(!this.insertItem(originalStack, PLAYER_SLOTS, this.slots.size(), false)) {
-                    return ItemStack.EMPTY;
+                    if (slotIndex < 27) { // inside inventory
+                        if (!this.insertItem(originalStack, 27, 36, false)) { // toolbar
+                            return ItemStack.EMPTY;
+                        }
+                    } else if (!this.insertItem(originalStack, 0, 27, false)) {
+                        return ItemStack.EMPTY;
+                    }
                 }
-            } else if(!this.insertItem(originalStack, 0, PLAYER_SLOTS, false)) {
-                // from container inventory to player
+            } else if(!this.insertItem(originalStack, 0, PLAYER_SLOTS, true)) { // from container inventory to player
                 return ItemStack.EMPTY;
             }
 
@@ -265,36 +262,5 @@ public abstract class ConfigurableScreenHandler extends ScreenHandler {
         }
 
         return bl;
-    }
-
-    public static class LockingModeSlot extends Slot {
-        public LockingModeSlot(Inventory inventory, int x, int y) {
-            super(inventory, -1, x, y);
-        }
-
-        @Override
-        public boolean canTakeItems(PlayerEntity playerEntity) {
-            return false;
-        }
-
-        @Override
-        public boolean canInsert(ItemStack stack) {
-            return false;
-        }
-
-        @Override
-        public ItemStack getStack() {
-            return ItemStack.EMPTY;
-        }
-
-        @Override
-        public void setStack(ItemStack stack) {
-
-        }
-
-        @Override
-        public boolean doDrawHoveringEffect() {
-            return true;
-        }
     }
 }

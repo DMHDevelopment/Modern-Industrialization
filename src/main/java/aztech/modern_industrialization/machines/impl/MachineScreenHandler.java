@@ -18,7 +18,8 @@ import static aztech.modern_industrialization.machines.impl.MachineSlotType.*;
 public class MachineScreenHandler extends ConfigurableScreenHandler {
 
     public MachineInventory inventory;
-    private PropertyDelegate propertyDelegate;
+    final PropertyDelegate propertyDelegate;
+    private final int[] trackedProperties;
     private MachineFactory factory;
     private boolean[] trackedExtract = new boolean[2];
 
@@ -36,7 +37,7 @@ public class MachineScreenHandler extends ConfigurableScreenHandler {
         inventory.onOpen(playerInventory.player);
         this.factory = factory;
         this.propertyDelegate = propertyDelegate;
-        this.addProperties(propertyDelegate);
+        this.trackedProperties = new int[propertyDelegate.size()];
         updateTrackedExtract();
 
 
@@ -67,9 +68,7 @@ public class MachineScreenHandler extends ConfigurableScreenHandler {
                     this.addSlot(stack.new ConfigurableFluidSlot(inventory, factory.getSlotPosX(i), factory.getSlotPosY(i)));
                 }
             }
-
-            addSlot(new LockingModeSlot(inventory, 152, 7));
-        } catch (IndexOutOfBoundsException ex) {
+        } catch (IndexOutOfBoundsException ignored) {
 
         }
     }
@@ -92,6 +91,10 @@ public class MachineScreenHandler extends ConfigurableScreenHandler {
     public boolean getIsActive() { return propertyDelegate.get(0) == 1; }
     public int getEfficiencyTicks() { return propertyDelegate.get(3); }
     public int getMaxEfficiencyTicks() { return propertyDelegate.get(4); }
+    public int getStoredEu() { return propertyDelegate.get(5); }
+    public int getMaxStoredEu() { return propertyDelegate.get(7); }
+    public int getRecipeEu() { return propertyDelegate.get(6); }
+    public int getRecipeMaxEu() { return propertyDelegate.get(8); }
 
     private void updateTrackedExtract() {
         trackedExtract[0] = inventory.getItemExtract();
@@ -108,6 +111,16 @@ public class MachineScreenHandler extends ConfigurableScreenHandler {
                 buf.writeBoolean(inventory.getItemExtract());
                 buf.writeBoolean(inventory.getFluidExtract());
                 ServerSidePacketRegistry.INSTANCE.sendToPlayer(playerInventory.player, MachinePackets.S2C.UPDATE_AUTO_EXTRACT, buf);
+            }
+            for(int i = 0; i < trackedProperties.length; ++i) {
+                if(trackedProperties[i] != propertyDelegate.get(i)) {
+                    trackedProperties[i] = propertyDelegate.get(i);
+                    PacketByteBuf buf = new PacketByteBuf(Unpooled.buffer());
+                    buf.writeInt(syncId);
+                    buf.writeInt(i);
+                    buf.writeInt(trackedProperties[i]);
+                    ServerSidePacketRegistry.INSTANCE.sendToPlayer(playerInventory.player, MachinePackets.S2C.SYNC_PROPERTY, buf);
+                }
             }
             super.sendContentUpdates();
         }

@@ -1,20 +1,20 @@
 {
     "type": "minecraft:crafting_shaped",
     "pattern": [
-        "#",
-        "#",
+        "P",
+        "P",
         "I"
     ],
+    "result": {
+        "item": "modern_industrialization:copper_blade",
+        "count": 4
+    },
     "key": {
-        "#": {
-            "item": "modern_industrialization:copper_plate"
+        "P": {
+            "tag": "c:copper_plates"
         },
         "I": {
             "item": "modern_industrialization:copper_rod"
         }
-    },
-    "result": {
-        "item": "modern_industrialization:copper_blade",
-        "count": 4
     }
 }

@@ -4,6 +4,9 @@ import aztech.modern_industrialization.blocks.forgehammer.ForgeHammerScreen;
 import aztech.modern_industrialization.blocks.tank.MITanks;
 import aztech.modern_industrialization.inventory.ConfigurableInventoryPacketHandlers;
 import aztech.modern_industrialization.inventory.ConfigurableInventoryPackets;
+import aztech.modern_industrialization.items.armor.ClientKeyHandler;
+import aztech.modern_industrialization.items.armor.HudRenderer;
+import aztech.modern_industrialization.items.armor.JetpackParticleAdder;
 import aztech.modern_industrialization.machines.impl.MachineFactory;
 import aztech.modern_industrialization.machines.impl.MachineModel;
 import aztech.modern_industrialization.machines.impl.MachinePackets;
@@ -12,9 +15,11 @@ import aztech.modern_industrialization.machines.impl.MachineScreen;
 import aztech.modern_industrialization.model.block.ModelProvider;
 import aztech.modern_industrialization.pipes.MIPipesClient;
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.model.ModelLoadingRegistry;
 import net.fabricmc.fabric.api.client.render.fluid.v1.FluidRenderHandler;
 import net.fabricmc.fabric.api.client.render.fluid.v1.FluidRenderHandlerRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry;
 import net.fabricmc.fabric.api.network.ClientSidePacketRegistry;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
@@ -39,7 +44,7 @@ public class ModernIndustrializationClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         setupScreens();
-        setupFluidRenders();
+        MIFluidsRender.setupFluidRenders();
         setupPackets();
         MITanks.setupClient();
         setupMachines();
@@ -47,6 +52,10 @@ public class ModernIndustrializationClient implements ClientModInitializer {
             return new ModelProvider();
         });
         (new MIPipesClient()).onInitializeClient();
+        ClientKeyHandler.setup();
+        ClientTickEvents.START_CLIENT_TICK.register(JetpackParticleAdder::addJetpackParticles);
+        ClientTickEvents.END_CLIENT_TICK.register(ClientKeyHandler::onEndTick);
+        HudRenderCallback.EVENT.register(HudRenderer::onRenderHud);
 
         ModernIndustrialization.LOGGER.info("Modern Industrialization client setup done!");
     }
@@ -56,46 +65,11 @@ public class ModernIndustrializationClient implements ClientModInitializer {
         ScreenRegistry.register(ModernIndustrialization.SCREEN_HANDLER_FORGE_HAMMER, ForgeHammerScreen::new);
     }
 
-    private void setupFluidRenders() {
-        final Identifier[] waterSpriteIds = new Identifier[] { new Identifier("minecraft:block/water_still"), new Identifier("minecraft:block/water_flow") };
-        final Sprite[] waterSprites = new Sprite[2];
-
-        final Identifier listenerId = new MIIdentifier("waterlike_reload_listener");
-        ResourceManagerHelper.get(ResourceType.CLIENT_RESOURCES).registerReloadListener(new SimpleSynchronousResourceReloadListener() {
-            @Override
-            public Identifier getFabricId() {
-                return listenerId;
-            }
-
-            @Override
-            public void apply(ResourceManager manager) {
-                for(int i = 0; i < 2; ++i) {
-                    waterSprites[i] = MinecraftClient.getInstance().getSpriteAtlas(SpriteAtlasTexture.BLOCK_ATLAS_TEX).apply(waterSpriteIds[i]);
-                }
-            }
-        });
-
-        BiConsumer<Fluid, Integer> registerWaterlikeFluid = (fluid, color) -> {
-            FluidRenderHandlerRegistry.INSTANCE.register(fluid, new FluidRenderHandler() {
-                @Override
-                public Sprite[] getFluidSprites(BlockRenderView blockRenderView, BlockPos blockPos, FluidState fluidState) {
-                    return waterSprites;
-                }
-
-                @Override
-                public int getFluidColor(BlockRenderView view, BlockPos pos, FluidState state) {
-                    return color;
-                }
-            });
-        };
-
-        registerWaterlikeFluid.accept(ModernIndustrialization.FLUID_STEAM, -1);
-    }
-
     private void setupPackets() {
         ClientSidePacketRegistry.INSTANCE.register(ConfigurableInventoryPackets.UPDATE_ITEM_SLOT, ConfigurableInventoryPacketHandlers.UPDATE_ITEM_SLOT);
         ClientSidePacketRegistry.INSTANCE.register(ConfigurableInventoryPackets.UPDATE_FLUID_SLOT, ConfigurableInventoryPacketHandlers.UPDATE_FLUID_SLOT);
         ClientSidePacketRegistry.INSTANCE.register(MachinePackets.S2C.UPDATE_AUTO_EXTRACT, MachinePackets.S2C.ON_UPDATE_AUTO_EXTRACT);
+        ClientSidePacketRegistry.INSTANCE.register(MachinePackets.S2C.SYNC_PROPERTY, MachinePackets.S2C.ON_SYNC_PROPERTY);
     }
 
     private void setupMachines() {

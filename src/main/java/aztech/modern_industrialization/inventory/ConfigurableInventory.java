@@ -11,6 +11,8 @@ import alexiil.mc.lib.attributes.fluid.filter.FluidFilter;
 import alexiil.mc.lib.attributes.fluid.volume.FluidKey;
 import alexiil.mc.lib.attributes.fluid.volume.FluidKeys;
 import alexiil.mc.lib.attributes.fluid.volume.FluidVolume;
+import alexiil.mc.lib.attributes.item.ItemAttributes;
+import alexiil.mc.lib.attributes.item.ItemInsertable;
 import aztech.modern_industrialization.util.ItemStackHelper;
 import aztech.modern_industrialization.util.NbtHelper;
 import net.minecraft.block.entity.BlockEntity;
@@ -120,33 +122,17 @@ public interface ConfigurableInventory extends Inventory, SidedInventory, FluidT
         return getItemStacks().get(slot).pipesExtract;
     }
 
-    default void autoExtractItems(Direction direction, BlockEntity targetEntity) {
-        if(targetEntity instanceof Inventory) {
+    default void autoExtractItems(World world, BlockPos pos, Direction direction) {
+        SearchOption option = SearchOptions.inDirection(direction);
+        if(ItemAttributes.INSERTABLE.getAll(world, pos.offset(direction), option).hasOfferedAny()) {
+            ItemInsertable insertable = ItemAttributes.INSERTABLE.get(world, pos.offset(direction), option);
             for(ConfigurableItemStack stack : getItemStacks()) {
-                if(stack.pipesExtract) {
-                    Inventory inv = (Inventory) targetEntity;
-                    for(int i = 0; i < inv.size() && !stack.stack.isEmpty(); ++i) {
-                        if(targetEntity instanceof SidedInventory) {
-                            if (!((SidedInventory) targetEntity).canInsert(i, stack.stack, direction.getOpposite()))
-                                continue;
-                        }
-                        if(inv.isValid(i, stack.stack)) {
-                            if(inv.getStack(i).isEmpty()) {
-                                inv.setStack(i, stack.stack);
-                                stack.stack = ItemStack.EMPTY;
-                                markDirty();
-                            } else if(ItemStackHelper.areEqualIgnoreCount(stack.stack, inv.getStack(i))) {
-                                int ins = Math.min(Math.min(inv.getMaxCountPerStack(), inv.getStack(i).getMaxCount() - inv.getStack(i).getCount()), stack.stack.getCount());
-                                stack.stack.decrement(ins);
-                                inv.getStack(i).increment(ins);
-                                markDirty();
-                            }
-                        }
-                    }
+                if(stack.pipesExtract && !stack.stack.isEmpty()) {
+                    stack.stack = insertable.insert(stack.stack);
+                    markDirty();
                 }
             }
         }
-        // TODO this is the hook to auto-extract items, must yet be implemented and called!
     }
 
     default void autoExtractFluids(World world, BlockPos pos, Direction direction) {
@@ -165,19 +151,19 @@ public interface ConfigurableInventory extends Inventory, SidedInventory, FluidT
 
     @Override
     default FluidVolume attemptInsertion(FluidVolume fluid, Simulation simulation) { // TODO: don't lose fluid
-        int leftover = internalInsert(fluid.getFluidKey(), fluid.amount().asInt(1000, RoundingMode.FLOOR), simulation, s -> s.pipesInsert, s -> {});
+        int leftover = internalInsert(getFluidStacks(), fluid.getFluidKey(), fluid.amount().asInt(1000, RoundingMode.FLOOR), simulation, s -> s.pipesInsert, s -> {}, this::markDirty);
         return fluid.getFluidKey().withAmount(FluidAmount.of(leftover, 1000));
     }
 
     /**
      * Internal insert. Returns leftover fluid.
      */
-    default int internalInsert(FluidKey fluid, int amount, Simulation simulation, Predicate<ConfigurableFluidStack> stackFilter, Consumer<Integer> stackUpdater) {
+    static int internalInsert(List<ConfigurableFluidStack> fluidStacks, FluidKey fluid, int amount, Simulation simulation, Predicate<ConfigurableFluidStack> stackFilter, Consumer<Integer> stackUpdater, Runnable markDirty) {
         int index = -1;
         // First, try to find a slot that contains the fluid. If we couldn't find one, we insert in any stack
         outer: for(int tries = 0; tries < 2; ++tries) {
-            for(int i = 0; i < getFluidStacks().size(); i++) {
-                ConfigurableFluidStack stack = getFluidStacks().get(i);
+            for(int i = 0; i < fluidStacks.size(); i++) {
+                ConfigurableFluidStack stack = fluidStacks.get(i);
                 if (stackFilter.test(stack) && stack.isFluidValid(fluid) && (tries == 1 || stack.getFluid() == fluid)) {
                     index = i;
                     break outer;
@@ -185,13 +171,13 @@ public interface ConfigurableInventory extends Inventory, SidedInventory, FluidT
             }
         }
         if(index == -1) return amount;
-        ConfigurableFluidStack targetStack = getFluidStacks().get(index);
+        ConfigurableFluidStack targetStack = fluidStacks.get(index);
         int ins = Math.min(amount, targetStack.getRemainingSpace());
         if (ins > 0) {
             if (simulation.isAction()) {
                 targetStack.setFluid(fluid);
                 targetStack.increment(ins);
-                markDirty();
+                markDirty.run();
             }
             stackUpdater.accept(index);
         }
@@ -201,13 +187,14 @@ public interface ConfigurableInventory extends Inventory, SidedInventory, FluidT
     @Override
     default FluidVolume attemptExtraction(FluidFilter filter, FluidAmount maxAmount, Simulation simulation) {
         for(ConfigurableFluidStack fluidStack : getFluidStacks()) {
-            if(fluidStack.pipesExtract && filter.matches(fluidStack.getFluid())) {
+            FluidKey fluid = fluidStack.getFluid();
+            if(fluidStack.pipesExtract && !fluid.isEmpty() && filter.matches(fluid)) {
                 int ext = Math.min(maxAmount.asInt(1000, RoundingMode.FLOOR), fluidStack.getAmount());
                 if(simulation.isAction()) {
                     fluidStack.decrement(ext);
                     markDirty();
                 }
-                return fluidStack.getFluid().withAmount(FluidAmount.of(ext, 1000));
+                return fluid.withAmount(FluidAmount.of(ext, 1000));
             }
         }
         return FluidKeys.EMPTY.withAmount(FluidAmount.ZERO);

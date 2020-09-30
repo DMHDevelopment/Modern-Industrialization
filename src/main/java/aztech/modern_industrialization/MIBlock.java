@@ -2,6 +2,7 @@ package aztech.modern_industrialization;
 
 import aztech.modern_industrialization.machines.impl.multiblock.MultiblockMachineBlockEntity;
 import aztech.modern_industrialization.material.MIMaterialSetup;
+import aztech.modern_industrialization.util.MobSpawning;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.block.Block;
@@ -24,12 +25,17 @@ public class MIBlock extends Block {
     public MIBlock(String id, Settings settings) {
         super(settings);
         if (blocks.containsKey(id)) {
-            throw new IllegalArgumentException("Item id already taken : " + id);
+            throw new IllegalArgumentException("Block id already taken : " + id);
         } else {
             this.id = id;
             blocks.put(id, this);
             blockItem = new BlockItem(this, new Item.Settings().group(ModernIndustrialization.ITEM_GROUP));
         }
+    }
+
+    public MIBlock(String id) {
+        this(id, FabricBlockSettings.of(MIMaterialSetup.METAL_MATERIAL).
+                hardness(4.0f).breakByTool(FabricToolTags.PICKAXES).requiresTool().allowsSpawning(MobSpawning.NO_SPAWN));
     }
 
     public String getId() {
@@ -46,16 +52,18 @@ public class MIBlock extends Block {
                     .breakByTool(FabricToolTags.PICKAXES, 0)
                     .requiresTool());
 
-    public static final MIBlock BLOCK_BRONZE_MACHINE_CASING = new MIBlock("bronze_machine_casing",
-            FabricBlockSettings.of(MIMaterialSetup.METAL_MATERIAL).
-                    hardness(4.0f).breakByTool(FabricToolTags.PICKAXES).requiresTool());
+    public static final MIBlock STEEL_MACHINE_CASING = new MIBlock("steel_machine_casing");
+    public static final MIBlock STEEL_MACHINE_CASING_PIPE = new MIBlock("steel_machine_casing_pipe");
+    public static final MIBlock BASIC_MACHINE_HULL = new MIBlock("lv_machine_hull");
+    public static final MIBlock BRONZE_PLATED_BRICKS = new MIBlock("bronze_plated_bricks");
+    public static final MIBlock BRONZE_MACHINE_CASING = new MIBlock("bronze_machine_casing");
+    public static final MIBlock BRONZE_MACHINE_CASING_PIPE = new MIBlock("bronze_machine_casing_pipe");
+    public static final MIBlock ADVANCED_MACHINE_CASING = new MIBlock("advanced_machine_casing");
+    public static final MIBlock HEATPROOF_MACHINE_CASING = new MIBlock("heatproof_machine_casing");
+    public static final MIBlock ADVANCED_MACHINE_HULL = new MIBlock("advanced_machine_hull");
 
-    public static final MIBlock BLOCK_STEEL_MACHINE_CASING = new MIBlock("steel_machine_casing",
-            FabricBlockSettings.of(MIMaterialSetup.METAL_MATERIAL).
-                    hardness(4.0f).breakByTool(FabricToolTags.PICKAXES).requiresTool());
-
-    public static final MIBlock BLOCK_STEEL_MACHINE_CASING_PIPE = new MIBlock("steel_machine_casing_pipe",
-            FabricBlockSettings.of(MIMaterialSetup.METAL_MATERIAL).
-                    hardness(4.0f).breakByTool(FabricToolTags.PICKAXES).requiresTool());
-
+    public static final MIBlock TURBO_MACHINE_CASING = new MIBlock("turbo_machine_casing");
+    public static final MIBlock TURBO_MACHINE_HULL = new MIBlock("turbo_machine_hull");
+    public static final MIBlock FROSTPROOF_MACHINE_CASING = new MIBlock("frostproof_machine_casing");
+    public static final MIBlock CLEAN_STAINLESS_STEEL_MACHINE_CASING = new MIBlock("clean_stainless_steel_machine_casing");
 }

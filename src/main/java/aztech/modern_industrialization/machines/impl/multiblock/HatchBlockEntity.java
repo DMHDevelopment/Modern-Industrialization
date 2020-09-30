@@ -13,16 +13,16 @@ import static aztech.modern_industrialization.machines.impl.multiblock.HatchType
 import static aztech.modern_industrialization.machines.impl.multiblock.HatchType.ITEM_OUTPUT;
 
 public class HatchBlockEntity extends MachineBlockEntity implements ChunkUnloadBlockEntity {
-    protected BlockPos controllerPos = null;
-    protected boolean lateLoaded = false;
+    private BlockPos controllerPos = null;
+    private boolean lateLoaded = false;
     public final HatchType type;
 
     public HatchBlockEntity(MachineFactory factory, HatchType type) {
-        super(factory, null);
+        super(factory);
         this.type = type;
     }
 
-    protected void lateLoad() {
+    private void lateLoad() {
         if(lateLoaded) return;
         lateLoaded = true;
         clearLocks();
@@ -35,17 +35,35 @@ public class HatchBlockEntity extends MachineBlockEntity implements ChunkUnloadB
         }
     }
 
+    boolean isUnlinked() {
+        return controllerPos == null;
+    }
+
+    void unlink() {
+        controllerPos = null;
+        markDirty();
+        if(!world.isClient) sync();
+    }
+
+    void link(MultiblockMachineBlockEntity controller) {
+        controllerPos = controller.getPos();
+        markDirty();
+        if(!world.isClient) sync();
+    }
+
     // TODO: override methods
 
     @Override
     public void tick() {
+        if(world.isClient) return;
         lateLoad();
         if(extractItems && type == ITEM_OUTPUT) {
-            autoExtractItems(outputDirection, world.getBlockEntity(pos.offset(outputDirection)));
+            autoExtractItems(world, pos, outputDirection);
         }
         if(extractFluids && type == FLUID_OUTPUT) {
             autoExtractFluids(world, pos, outputDirection);
         }
+        markDirty();
         // TODO: auto-input
     }
 
@@ -63,9 +81,33 @@ public class HatchBlockEntity extends MachineBlockEntity implements ChunkUnloadB
     }
 
     @Override
+    public CompoundTag toClientTag(CompoundTag tag) {
+        NbtHelper.putBlockPos(tag, "controllerPos", controllerPos);
+        return super.toClientTag(tag);
+    }
+
+    @Override
+    public void fromClientTag(CompoundTag tag) {
+        controllerPos = NbtHelper.getBlockPos(tag, "controllerPos");
+        if(controllerPos == null) {
+            controllerPos = null;
+            casingOverride = null;
+        } else {
+            MultiblockMachineBlockEntity be = (MultiblockMachineBlockEntity) world.getBlockEntity(controllerPos);
+            casingOverride = be == null ? null : be.hatchCasing;
+        }
+        super.fromClientTag(tag);
+    }
+
+    @Override
     public void onChunkUnload() {
         if(controllerPos != null) {
-            ((MultiblockMachineBlockEntity) world.getBlockEntity(controllerPos)).hatchUnloaded(pos);
+            if(world.isChunkLoaded(controllerPos)) {
+                BlockEntity be = world.getBlockEntity(controllerPos);
+                if (be instanceof MultiblockMachineBlockEntity) {
+                    ((MultiblockMachineBlockEntity) be).hatchUnloaded(pos);
+                }
+            }
         }
     }
 }

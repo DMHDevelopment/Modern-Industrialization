@@ -5,7 +5,9 @@
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "DefaultBiomeFeaturesMixin",
-    "IngredientMixin"
+    "IngredientMixin",
+    "RecipeManagerAccessor",
+    "ServerPlayNetworkHandlerAccessor"
   ],
   "injectors": {
     "defaultRequire": 1

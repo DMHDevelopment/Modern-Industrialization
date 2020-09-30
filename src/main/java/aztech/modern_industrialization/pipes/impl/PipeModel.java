@@ -40,8 +40,8 @@ public class PipeModel implements UnbakedModel, BakedModel, FabricBakedModel {
     private static final List<SpriteIdentifier> SPRITE_IDS;
 
     static {
-        List<String> names = Arrays.asList("fluid", "fluid_in", "fluid_in_out", "fluid_out", "item", "item_in", "item_in_out", "item_out");
-        SPRITE_IDS = names.stream().map(n -> new SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEX, new MIIdentifier("blocks/pipes/" + n))).collect(Collectors.toList());
+        List<String> names = Arrays.asList("fluid", "fluid_in", "fluid_in_out", "fluid_out", "item", "item_in", "item_in_out", "item_out", "electricity");
+        SPRITE_IDS = names.stream().map(n -> new SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE, new MIIdentifier("blocks/pipes/" + n))).collect(Collectors.toList());
     }
 
     private Sprite[] sprites;
@@ -50,7 +50,6 @@ public class PipeModel implements UnbakedModel, BakedModel, FabricBakedModel {
     private Mesh itemMesh;
     private static final Identifier DEFAULT_BLOCK_MODEL = new Identifier("minecraft:block/block");
     private ModelTransformation modelTransformation;
-    private boolean isBaked = false;
 
     @Override
     public boolean isVanillaAdapter() {
@@ -158,9 +157,6 @@ public class PipeModel implements UnbakedModel, BakedModel, FabricBakedModel {
 
     @Override
     public BakedModel bake(ModelLoader loader, Function<SpriteIdentifier, Sprite> textureGetter, ModelBakeSettings rotationContainer, Identifier modelId) {
-        if (isBaked) return this;
-        isBaked = true;
-
         sprites = new Sprite[SPRITE_IDS.size()];
         for(int i = 0; i < SPRITE_IDS.size(); i++) {
             sprites[i] = textureGetter.apply(SPRITE_IDS.get(i));

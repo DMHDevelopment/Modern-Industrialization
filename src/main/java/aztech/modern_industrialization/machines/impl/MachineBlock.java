@@ -2,6 +2,7 @@ package aztech.modern_industrialization.machines.impl;
 
 import alexiil.mc.lib.attributes.AttributeList;
 import alexiil.mc.lib.attributes.AttributeProvider;
+import alexiil.mc.lib.attributes.fluid.FluidAttributes;
 import aztech.modern_industrialization.ModernIndustrialization;
 import aztech.modern_industrialization.machines.impl.multiblock.HatchBlockEntity;
 import aztech.modern_industrialization.machines.impl.multiblock.MultiblockMachineBlockEntity;
@@ -10,6 +11,7 @@ import aztech.modern_industrialization.pipes.MIPipes;
 import aztech.modern_industrialization.tools.IWrenchable;
 import aztech.modern_industrialization.tools.MachineOverlayItem;
 import aztech.modern_industrialization.tools.WrenchItem;
+import aztech.modern_industrialization.util.MobSpawning;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.block.*;
@@ -22,6 +24,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.sound.SoundCategory;
@@ -50,7 +53,7 @@ public class MachineBlock extends Block implements BlockEntityProvider, IWrencha
     private final Supplier<MachineBlockEntity> blockEntityFactory;
 
     public MachineBlock(Supplier<MachineBlockEntity> blockEntityFactory) {
-        super(FabricBlockSettings.of(MIMaterialSetup.METAL_MATERIAL).hardness(4.0f).breakByTool(FabricToolTags.PICKAXES).requiresTool());
+        super(FabricBlockSettings.of(MIMaterialSetup.METAL_MATERIAL).hardness(4.0f).breakByTool(FabricToolTags.PICKAXES).requiresTool().allowsSpawning(MobSpawning.NO_SPAWN));
         this.blockEntityFactory = blockEntityFactory;
     }
 
@@ -127,7 +130,7 @@ public class MachineBlock extends Block implements BlockEntityProvider, IWrencha
                 Vec3d vec3d2 = player.getRotationVec(tickDelta);
                 double maxDistance = MinecraftClient.getInstance().interactionManager.getReachDistance();
                 Vec3d vec3d3 = vec3d.add(vec3d2.x * maxDistance, vec3d2.y * maxDistance, vec3d2.z * maxDistance);
-                BlockHitResult hit = shape.rayTrace(vec3d, vec3d3, pos);
+                BlockHitResult hit = shape.raycast(vec3d, vec3d3, pos);
                 if (hit != null && hit.getType() == HitResult.Type.BLOCK) {
                     double dist = hit.getPos().distanceTo(vec3d);
                     if (dist < smallestDistance[0]) {
@@ -151,7 +154,7 @@ public class MachineBlock extends Block implements BlockEntityProvider, IWrencha
     }
 
     @Override
-    public VoxelShape getRayTraceShape(BlockState state, BlockView world, BlockPos pos) {
+    public VoxelShape getRaycastShape(BlockState state, BlockView world, BlockPos pos) {
         return VoxelShapes.cuboid(0, 0, 0, 1, 1, 1);
     }
 
@@ -193,13 +196,14 @@ public class MachineBlock extends Block implements BlockEntityProvider, IWrencha
                             MultiblockMachineBlockEntity multiblock = (MultiblockMachineBlockEntity) entity;
                             multiblock.rebuildShape();
                             if (multiblock.getErrorMessage() != null) {
-                                player.sendMessage(multiblock.getErrorMessage(), true);
+                                player.sendMessage(multiblock.getErrorMessage(), false);
                             }
                         }
                         return ActionResult.success(world.isClient);
                     }
                 } else if(entity.hasOutput()) {
                     entity.setOutputDirection(newDirection);
+                    world.updateNeighbors(blockPos, null);
                     // TODO play sound
                     return ActionResult.SUCCESS;
                 }
@@ -211,6 +215,8 @@ public class MachineBlock extends Block implements BlockEntityProvider, IWrencha
     @Override
     public void addAllAttributes(World world, BlockPos pos, BlockState state, AttributeList<?> to) {
         MachineBlockEntity be = (MachineBlockEntity) world.getBlockEntity(pos);
-        to.offer(be);
+        if((to.attribute == FluidAttributes.INSERTABLE || to.attribute == FluidAttributes.EXTRACTABLE) && be.fluidStacks.size() > 0) {
+            to.offer(be);
+        }
     }
 }

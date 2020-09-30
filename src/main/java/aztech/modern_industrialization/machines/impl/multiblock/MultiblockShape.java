@@ -25,7 +25,7 @@ public class MultiblockShape {
 
     Map<BlockPos, Entry> entries = new HashMap<>();
     int maxHatches = Integer.MAX_VALUE;
-    Text errorMessage = null;
+    private Text errorMessage = null;
 
     public void addEntry(BlockPos pos, Entry entry) {
         if(entry == null) throw new IllegalArgumentException("Can't accept null entry");
@@ -36,8 +36,9 @@ public class MultiblockShape {
         addEntry(new BlockPos(x, y, z), entry);
     }
 
-    public void setMaxHatches(int maxHatches) {
+    public MultiblockShape setMaxHatches(int maxHatches) {
         this.maxHatches = maxHatches;
+        return this;
     }
 
     public boolean matchShape(World world, BlockPos controllerPos, Direction controllerDirection, Map<BlockPos, HatchBlockEntity> outHatches, Set<BlockPos> outStructure) {
@@ -76,5 +77,9 @@ public class MultiblockShape {
 
         errorMessage = new TranslatableText("text.modern_industrialization.shape_valid");
         return true;
+    }
+
+    public Text getErrorMessage() {
+        return errorMessage;
     }
 }

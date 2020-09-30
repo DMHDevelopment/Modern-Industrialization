@@ -4,6 +4,7 @@ import aztech.modern_industrialization.ModernIndustrialization;
 import aztech.modern_industrialization.pipes.MIPipes;
 import aztech.modern_industrialization.pipes.api.PipeNetworkType;
 import aztech.modern_industrialization.tools.IWrenchable;
+import aztech.modern_industrialization.util.MobSpawning;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.block.*;
@@ -39,7 +40,7 @@ import java.util.stream.Collectors;
 
 public class PipeBlock extends Block implements BlockEntityProvider, IWrenchable {
     public PipeBlock(Settings settings) {
-        super(settings);
+        super(settings.allowsSpawning(MobSpawning.NO_SPAWN).nonOpaque());
     }
 
     @Override
@@ -96,14 +97,11 @@ public class PipeBlock extends Block implements BlockEntityProvider, IWrenchable
                             }
                             return ActionResult.success(world.isClient);
                         }
-                    } else {
+                    } else if(partShape.opensGui) {
                         if(!world.isClient) {
-                            ExtendedScreenHandlerFactory guiFactory = pipeEntity.getGui(partShape.type, partShape.direction);
-                            if(guiFactory != null) {
-                                player.openHandledScreen(guiFactory);
-                                return ActionResult.CONSUME;
-                            }
+                            player.openHandledScreen(pipeEntity.getGui(partShape.type, partShape.direction));
                         }
+                        return ActionResult.success(world.isClient);
                     }
                 }
             }
@@ -198,7 +196,7 @@ public class PipeBlock extends Block implements BlockEntityProvider, IWrenchable
                 Vec3d vec3d2 = player.getRotationVec(tickDelta);
                 double maxDistance = MinecraftClient.getInstance().interactionManager.getReachDistance();
                 Vec3d vec3d3 = vec3d.add(vec3d2.x * maxDistance, vec3d2.y * maxDistance, vec3d2.z * maxDistance);
-                BlockHitResult hit = partShape.rayTrace(vec3d, vec3d3, pos);
+                BlockHitResult hit = partShape.raycast(vec3d, vec3d3, pos);
                 if (hit != null && hit.getType() == HitResult.Type.BLOCK) {
                     double dist = hit.getPos().distanceTo(vec3d);
                     if (dist < smallestDistance[0]) {
@@ -252,7 +250,7 @@ public class PipeBlock extends Block implements BlockEntityProvider, IWrenchable
 				    Vec3d vec3d2 = player.getRotationVec(tickDelta);
 				    double maxDistance = MinecraftClient.getInstance().interactionManager.getReachDistance();
 				    Vec3d vec3d3 = vec3d.add(vec3d2.x * maxDistance, vec3d2.y * maxDistance, vec3d2.z * maxDistance);
-				    BlockHitResult hit = partShape.rayTrace(vec3d, vec3d3, pos);
+				    BlockHitResult hit = partShape.raycast(vec3d, vec3d3, pos);
 				    if (hit != null && hit.getType() == HitResult.Type.BLOCK) {
 					    double dist = hit.getPos().distanceTo(vec3d);
 					    if (dist < smallestDistance[0]) {
@@ -275,7 +273,7 @@ public class PipeBlock extends Block implements BlockEntityProvider, IWrenchable
     }
 
     @Override
-    public VoxelShape getRayTraceShape(BlockState state, BlockView world, BlockPos pos) {
+    public VoxelShape getRaycastShape(BlockState state, BlockView world, BlockPos pos) {
         return getCollisionShape(state, world, pos, null);
     }
 
@@ -291,7 +289,9 @@ public class PipeBlock extends Block implements BlockEntityProvider, IWrenchable
 
     @Override
     public VoxelShape getCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        PipeBlockEntity entity = (PipeBlockEntity) world.getBlockEntity(pos);
-        return entity == null ? PipeBlockEntity.DEFAULT_SHAPE : entity.currentCollisionShape;
+        BlockEntity be = world.getBlockEntity(pos);
+        if(!(be instanceof PipeBlockEntity)) return PipeBlockEntity.DEFAULT_SHAPE; // Because Mojang fucked up
+        PipeBlockEntity entity = (PipeBlockEntity) be;
+        return entity.currentCollisionShape;
     }
 }

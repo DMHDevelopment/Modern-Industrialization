@@ -1,9 +1,13 @@
 package aztech.modern_industrialization.pipes;
 
 import alexiil.mc.lib.attributes.fluid.volume.FluidKeys;
+import aztech.modern_industrialization.api.energy.CableTier;
 import aztech.modern_industrialization.MIIdentifier;
 import aztech.modern_industrialization.ModernIndustrialization;
 import aztech.modern_industrialization.pipes.api.*;
+import aztech.modern_industrialization.pipes.electricity.ElectricityNetwork;
+import aztech.modern_industrialization.pipes.electricity.ElectricityNetworkData;
+import aztech.modern_industrialization.pipes.electricity.ElectricityNetworkNode;
 import aztech.modern_industrialization.pipes.fluid.FluidNetwork;
 import aztech.modern_industrialization.pipes.fluid.FluidNetworkData;
 import aztech.modern_industrialization.pipes.fluid.FluidNetworkNode;
@@ -34,8 +38,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import static aztech.modern_industrialization.pipes.api.PipeConnectionType.FLUID;
-import static aztech.modern_industrialization.pipes.api.PipeConnectionType.ITEM;
+import static aztech.modern_industrialization.api.energy.CableTier.*;
+import static aztech.modern_industrialization.pipes.api.PipeConnectionType.*;
 
 public class MIPipes implements ModInitializer {
     public static final MIPipes INSTANCE = new MIPipes();
@@ -61,8 +65,9 @@ public class MIPipes implements ModInitializer {
         registerFluidPipeType("tin",255 << 24 | 203 << 16 | 228 << 8 | 228, 1000);
         registerFluidPipeType("copper",255 << 24 | 255 << 16 | 102 << 8, 1000);
         registerFluidPipeType("lead",255 << 24 | 0x4a2649, 1000);
-        registerFluidPipeType("nickel",255 << 24 | 0xc2b2bf, 1000);
+        registerFluidPipeType("nickel",255 << 24 | 0xa9a9d4, 1000);
         registerFluidPipeType("silver",255 << 24 | 0x99ffff, 1000);
+        registerFluidPipeType("electrum",255 << 24 | 0xefff5e, 1000);
 
         registerItemPipeType("gold",255 << 24 | 255 << 16 | 225 << 8 | 0);
         registerItemPipeType("aluminum",255 << 24 | 63 << 16 | 202 << 8 | 255);
@@ -72,8 +77,15 @@ public class MIPipes implements ModInitializer {
         registerItemPipeType("tin",255 << 24 | 203 << 16 | 228 << 8 | 228);
         registerItemPipeType("copper",255 << 24 | 255 << 16 | 102 << 8);
         registerItemPipeType("lead",255 << 24 | 0x4a2649);
-        registerItemPipeType("nickel",255 << 24 | 0xc2b2bf);
+        registerItemPipeType("nickel",255 << 24 | 0xa9a9d4);
         registerItemPipeType("silver",255 << 24 | 0x99ffff);
+        registerItemPipeType("electrum",255 << 24 | 0xefff5e);
+
+        registerElectricityPipeType("tin", 255 << 24 | 203 << 16 | 228 << 8 | 228, LV);
+        registerElectricityPipeType("copper", 255 << 24 | 255 << 16 | 102 << 8, LV);
+        registerElectricityPipeType("cupronickel", 0xffe39680, MV);
+        registerElectricityPipeType("electrum",255 << 24 | 0xefff5e, MV);
+        registerElectricityPipeType("aluminum",255 << 24 | 63 << 16 | 202 << 8 | 255, HV);
 
         ServerTickEvents.START_SERVER_TICK.register(server -> {
             for(World world : server.getWorlds()) {
@@ -121,11 +133,31 @@ public class MIPipes implements ModInitializer {
         PIPE_MODEL_NAMES.add(new MIIdentifier("item/pipe_item_" + name));
     }
 
+    public void registerElectricityPipeType(String name, int color, CableTier tier) {
+        PipeNetworkType type = PipeNetworkType.register(
+                new MIIdentifier("electricity_" + name),
+                (id, data) -> new ElectricityNetwork(id, data, tier),
+                ElectricityNetworkNode::new,
+                color,
+                ELECTRICITY
+        );
+        Item item = new PipeItem(
+                new Item.Settings().group(ModernIndustrialization.ITEM_GROUP),
+                type,
+                new ElectricityNetworkData()
+        );
+        pipeItems.put(type, item);
+        Registry.register(Registry.ITEM, new MIIdentifier("pipe_electricity_" + name), item);
+        PIPE_MODEL_NAMES.add(new MIIdentifier("item/pipe_electricity_" + name));
+    }
+
     public Item getPipeItem(PipeNetworkType type) {
         return pipeItems.get(type);
     }
 
     public void registerPackets() {
         ServerSidePacketRegistry.INSTANCE.register(PipePackets.SET_ITEM_WHITELIST, PipePackets.ON_SET_ITEM_WHITELIST);
+        ServerSidePacketRegistry.INSTANCE.register(PipePackets.SET_ITEM_CONNECTION_TYPE, PipePackets.ON_SET_ITEM_CONNECTION_TYPE);
+        ServerSidePacketRegistry.INSTANCE.register(PipePackets.INCREMENT_ITEM_PRIORITY, PipePackets.ON_INCREMENT_ITEM_PRIORITY);
     }
 }

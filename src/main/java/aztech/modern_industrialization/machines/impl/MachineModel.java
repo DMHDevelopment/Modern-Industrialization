@@ -37,7 +37,6 @@ import java.util.stream.Collectors;
 public class MachineModel extends CustomBlockModel {
     public final String model_name;
     private SpriteIdentifier[] sprite_ids;
-    private boolean baked = false;
     private Sprite[] sprites;
 
     private RenderMaterial cutoutMaterial;
@@ -46,9 +45,9 @@ public class MachineModel extends CustomBlockModel {
     public MachineModel(String model_name, Identifier topTexture, Identifier sideTexture, Identifier bottomTexture) {
         this.model_name = model_name;
         sprite_ids = new SpriteIdentifier[] {
-                new SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEX, topTexture),
-                new SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEX, sideTexture),
-                new SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEX, bottomTexture),
+                new SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE, topTexture),
+                new SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE, sideTexture),
+                new SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE, bottomTexture),
                 null, // front overlay
                 null, // active front overlay
                 null, // side overlay
@@ -70,37 +69,37 @@ public class MachineModel extends CustomBlockModel {
     }
 
     public MachineModel withFrontOverlay(Identifier inactiveOverlay, Identifier activeOverlay) {
-        sprite_ids[3] = new SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEX, inactiveOverlay);
-        sprite_ids[4] = new SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEX, activeOverlay);
+        sprite_ids[3] = new SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE, inactiveOverlay);
+        sprite_ids[4] = new SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE, activeOverlay);
         return this;
     }
 
     public MachineModel withSideOverlay(Identifier inactiveOverlay, Identifier activeOverlay) {
-        sprite_ids[5] = new SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEX, inactiveOverlay);
-        sprite_ids[6] = new SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEX, activeOverlay);
+        sprite_ids[5] = new SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE, inactiveOverlay);
+        sprite_ids[6] = new SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE, activeOverlay);
         return this;
     }
 
     public MachineModel withTopOverlay(Identifier inactiveOverlay, Identifier activeOverlay) {
-        sprite_ids[7] = new SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEX, inactiveOverlay);
-        sprite_ids[8] = new SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEX, activeOverlay);
+        sprite_ids[7] = new SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE, inactiveOverlay);
+        sprite_ids[8] = new SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE, activeOverlay);
         return this;
     }
 
     public MachineModel withOutputOverlay(Identifier overlay, Identifier extractItems, Identifier extractFluids) {
-        sprite_ids[ 9] = new SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEX, overlay);
-        sprite_ids[10] = new SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEX, extractItems);
-        sprite_ids[11] = new SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEX, extractFluids);
+        sprite_ids[ 9] = new SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE, overlay);
+        sprite_ids[10] = new SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE, extractItems);
+        sprite_ids[11] = new SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE, extractFluids);
         return this;
     }
 
     @Override
     public void emitBlockQuads(BlockRenderView blockRenderView, BlockState blockState, BlockPos blockPos, Supplier<Random> supplier, RenderContext renderContext) {
-        // Render base mesh
-        renderContext.meshConsumer().accept(mesh);
-        // Render overlays
         RenderAttachedBlockView view = (RenderAttachedBlockView) blockRenderView;
         AbstractMachineBlockEntity.AttachmentData attachmentData = (AbstractMachineBlockEntity.AttachmentData)view.getBlockEntityRenderAttachment(blockPos);
+        // Render base mesh
+        renderContext.meshConsumer().accept(attachmentData.casingOverride == null ? mesh : attachmentData.casingOverride.mesh);
+        // Render overlays
         QuadEmitter emitter = renderContext.getEmitter();
         for(Direction direction : Direction.values()) {
             int spriteId = -2;
@@ -171,11 +170,6 @@ public class MachineModel extends CustomBlockModel {
 
     @Override
     public BakedModel bake(ModelLoader loader, Function<SpriteIdentifier, Sprite> textureGetter, ModelBakeSettings rotationContainer, Identifier modelId) {
-        if(baked) {
-           return this;
-        }
-        baked = true;
-
         super.bake(loader, textureGetter, rotationContainer, modelId);
 
         // Get sprites

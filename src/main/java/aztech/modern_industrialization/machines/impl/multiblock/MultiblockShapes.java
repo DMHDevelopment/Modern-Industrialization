@@ -4,6 +4,8 @@ import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.ChainBlock;
 import net.minecraft.block.PillarBlock;
+import net.minecraft.text.LiteralText;
+import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Identifier;
@@ -27,19 +29,16 @@ public class MultiblockShapes {
         };
     }
 
-    // TODO :
     public static MultiblockShape.Entry verticalChain() {
         return new MultiblockShape.Entry() {
             @Override
-
             public boolean matches(BlockView world, BlockPos pos) {
-                return world.getBlockState(pos).isOf(Blocks.CHAIN) && (world.getBlockState(pos).get(PillarBlock.AXIS)
-                         == Direction.Axis.Y) && !world.getBlockState(pos).get(ChainBlock.WATERLOGGED);
+                return world.getBlockState(pos).isOf(Blocks.CHAIN) && world.getBlockState(pos).get(PillarBlock.AXIS) == Direction.Axis.Y;
             }
 
             @Override
             public Text getErrorMessage() {
-                return new TranslatableText("text.modern_industrialization.shape_error_block", new TranslatableText(Blocks.CHAIN.getTranslationKey()));
+                return new TranslatableText("text.modern_industrialization.shape_error_vertical_chain");
             }
         };
     }
@@ -54,7 +53,7 @@ public class MultiblockShapes {
             @Override
             public Text getErrorMessage() {
                 Block block = Registry.BLOCK.get(id);
-                return new TranslatableText("text.modern_industrialization.shape_error_block", block.getTranslationKey());
+                return new TranslatableText("text.modern_industrialization.shape_error_block", new TranslatableText(block.getTranslationKey()));
             }
         };
     }
@@ -63,22 +62,37 @@ public class MultiblockShapes {
     public static final int HATCH_FLAG_ITEM_OUTPUT = 1 << 1;
     public static final int HATCH_FLAG_FLUID_INPUT = 1 << 2;
     public static final int HATCH_FLAG_FLUID_OUTPUT = 1 << 3;
+    public static final int HATCH_FLAG_ENERGY_INPUT = 1 << 4;
+    public static final int HATCH_FLAG_ENERGY_OUTPUT = 1 << 5;
     public static MultiblockShape.Entry hatch(int hatchesFlag) {
         return new MultiblockShape.Entry() {
             @Override
             public boolean matches(BlockView world, BlockPos pos) {
                 if(world.getBlockEntity(pos) instanceof HatchBlockEntity) {
                     HatchBlockEntity entity = (HatchBlockEntity) world.getBlockEntity(pos);
-                    return entity.controllerPos == null && (hatchesFlag & (1 << entity.type.getId())) > 0;
+                    return entity.isUnlinked() && (hatchesFlag & (1 << entity.type.getId())) > 0;
                 }
                 return false;
             }
 
             @Override
             public Text getErrorMessage() {
-                return new TranslatableText("text.modern_industrialization.shape_error_hatch", Integer.toBinaryString(hatchesFlag));
+                return new TranslatableText("text.modern_industrialization.shape_error_hatch", writeHatchTypes(hatchesFlag));
             }
         };
+    }
+
+    private static Text writeHatchTypes(int hatchesFlag) {
+        MutableText text = new LiteralText("");
+        for(int i = 0; i < 6; ++i) {
+            if((hatchesFlag & (1 << i)) > 0) {
+                if (i != 0) {
+                    text.append(new TranslatableText("text.modern_industrialization.shape_error_hatch_separator"));
+                }
+                text.append(new TranslatableText("text.modern_industrialization.shape_error_hatch_" + i));
+            }
+        }
+        return text;
     }
 
     public static MultiblockShape.Entry or(MultiblockShape.Entry entry1, MultiblockShape.Entry entry2) {
