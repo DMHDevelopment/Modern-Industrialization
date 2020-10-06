@@ -1,10 +1,10 @@
-package dev.dmhdevelopment.modernindustrialization.items;
+package dev.dmhdevelopment.modernindustrialization.items.ingot;
 
 import dev.dmhdevelopment.modernindustrialization.utils.ModernIndustrializationCreativeTab;
 import net.minecraft.item.Item;
 
-public class GoldDust extends Item{
-    public GoldDust() {
+public class BauxiteIngot extends Item{
+    public BauxiteIngot() {
         super(new Item.Properties().group(ModernIndustrializationCreativeTab.ModernIndustrializationCreativeTab));
     }
 }
