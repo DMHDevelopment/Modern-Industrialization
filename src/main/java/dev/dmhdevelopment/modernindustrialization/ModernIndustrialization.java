@@ -56,8 +56,6 @@ public class ModernIndustrialization
                             ItemRegistry.CopperIngot = new CopperIngot().setRegistryName(location("copper_ingot")),
                             ItemRegistry.NickelIngot = new NickelIngot().setRegistryName(location("nickel_ingot")),
                             ItemRegistry.AntimonyIngot = new AntimonyIngot().setRegistryName(location("antimony_ingot")),
-                            ItemRegistry.SaltIngot = new SaltIngot().setRegistryName(location("salt_ingot")),
-                            ItemRegistry.BauxiteIngot = new BauxiteIngot().setRegistryName(location("bauxite_ingot")),
                             ItemRegistry.LeadIngot = new LeadIngot().setRegistryName(location("lead_ingot")),
                             ItemRegistry.SilverIngot = new SilverIngot().setRegistryName(location("silver_ingot"))
                     );
