@@ -2,6 +2,6 @@
   "parent": "item/generated",
   "textures":
   {
-    "layer0": "modernindustrialization:items/bronze/aluminium_ingot"
+    "layer0": "modernindustrialization:items/aluminum/aluminum_ingot"
   }
 }
