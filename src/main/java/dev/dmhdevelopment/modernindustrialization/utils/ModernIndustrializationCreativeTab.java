@@ -8,7 +8,7 @@ public class ModernIndustrializationCreativeTab {
     public static final ItemGroup ModernIndustrializationCreativeTab = new ItemGroup("mod_tab") {
         @Override
         public ItemStack createIcon() {
-            return new ItemStack(ItemRegistry.AluminiumIngot.getItem());
+            return new ItemStack(ItemRegistry.Aluminum_Ingot.getItem());
         }
     };
 

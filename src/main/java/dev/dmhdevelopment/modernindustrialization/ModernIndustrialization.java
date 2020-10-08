@@ -4,10 +4,9 @@ import dev.dmhdevelopment.modernindustrialization.init.ItemRegistry;
 import dev.dmhdevelopment.modernindustrialization.items.dust.*;
 import dev.dmhdevelopment.modernindustrialization.items.dust.ElectrumIngot;
 import dev.dmhdevelopment.modernindustrialization.items.dust.InvarIngot;
-import dev.dmhdevelopment.modernindustrialization.items.dust.ManganeseIngot;
+import dev.dmhdevelopment.modernindustrialization.items.ingot.ManganeseIngot;
 import dev.dmhdevelopment.modernindustrialization.items.dust.SiliconIngot;
 import dev.dmhdevelopment.modernindustrialization.items.ingot.*;
-import net.minecraft.block.OreBlock;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
@@ -47,10 +46,10 @@ public class ModernIndustrialization
             event.getRegistry().registerAll
                     (
                             //алюминий
-                            ItemRegistry.AluminiumIngot = new AluminiumIngot().setRegistryName(location("aluminium_ingot")),
-                            ItemRegistry.AluminiumDust = new AluminiumDust().setRegistryName(location("aluminium_dust")),
+                            ItemRegistry.Aluminum_Ingot = new Aluminum_Ingot().setRegistryName(location("aluminum_ingot")),
+                            ItemRegistry.Aluminum_Dust = new Aluminum_Dust().setRegistryName(location("aluminum_dust")),
                             //бронза
-                            ItemRegistry.BronzeIngot = new BronzeIngot().setRegistryName(location("bronz_ingot")),
+                            ItemRegistry.BronzeIngot = new BronzeIngot().setRegistryName(location("bronze_ingot")),
                             ItemRegistry.BronzeDust = new BronzeDust().setRegistryName(location("bronze_dust")),
                             //хром
                             ItemRegistry.ChromeIngot = new ChromeIngot().setRegistryName(location("chrome_ingot")),
@@ -91,8 +90,8 @@ public class ModernIndustrialization
                             //железо
                             ItemRegistry.IronDust = new IronDust().setRegistryName(location("iron_dust")),
                             //марганец
-                            ItemRegistry.ManganeseIngot = new ManganeseIngot().setRegistryName(location("manganise_ingot")),
-                            ItemRegistry.ManganeseDust = new ManganeseDust().setRegistryName(location("manganise_dust")),
+                            ItemRegistry.ManganeseIngot = new ManganeseIngot().setRegistryName(location("manganese_ingot")),
+                            ItemRegistry.ManganeseDust = new ManganeseDust().setRegistryName(location("manganese_dust")),
                             //кварц
                             ItemRegistry.QuartzDust = new QuartzDust().setRegistryName(location("quartz_dust")),
                             //
@@ -104,8 +103,8 @@ public class ModernIndustrialization
                             ItemRegistry.SodiumIngot = new SodiumIngot().setRegistryName(location("sodium_ingot")),
                             ItemRegistry.SodiumDust = new SodiumDust().setRegistryName(location("sodium_dust")),
                             //суперсталь
-                            ItemRegistry.StainlesssteelIngot = new StainlesssteelIngot().setRegistryName(location("stainlesssteel_ingot")),
-                            ItemRegistry.StainlesssteelDust = new StainlesssteelDust().setRegistryName(location("stainlesssteel_dust")),
+                            ItemRegistry.Stainless_steelIngot = new Stainless_steelIngot().setRegistryName(location("stainless_steel_ingot")),
+                            ItemRegistry.Stainless_steelDust = new Stainless_steelDust().setRegistryName(location("stainless_steel_dust")),
                             //сталь
                             ItemRegistry.SteelIngot = new SteelIngot().setRegistryName(location("steel_ingot")),
                             ItemRegistry.SteelDust = new SteelDust().setRegistryName(location("steel_dust")),
@@ -119,7 +118,7 @@ public class ModernIndustrialization
 
             );
         }
-*/
+        */
         private static ResourceLocation location(String name) {
             return new ResourceLocation(MOD_ID, name);
         }

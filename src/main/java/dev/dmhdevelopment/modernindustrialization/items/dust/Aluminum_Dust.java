@@ -1,10 +1,10 @@
-package dev.dmhdevelopment.modernindustrialization.items.ingot;
+package dev.dmhdevelopment.modernindustrialization.items.dust;
 
 import dev.dmhdevelopment.modernindustrialization.utils.ModernIndustrializationCreativeTab;
 import net.minecraft.item.Item;
 
-public class ManganeseIngot extends Item{
-    public ManganeseIngot() {
+public class Aluminum_Dust extends Item {
+    public Aluminum_Dust() {
         super(new Item.Properties().group(ModernIndustrializationCreativeTab.ModernIndustrializationCreativeTab));
     }
 }

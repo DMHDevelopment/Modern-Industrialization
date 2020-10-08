@@ -6,6 +6,14 @@ import net.minecraftforge.registries.ObjectHolder;
 
 public class ItemRegistry {
     @ObjectHolder("modernindustrialization:ingot")
-    public static Item BronzeIngot, AluminiumIngot, ChromeIngot, GoldDust, AluminiumDust, BronzeDust, ChromeDust, TinIngot, CopperIngot, NickelIngot, AntimonyIngot, LeadIngot, SilverIngot, AntimonyDust, CopperDust, LeadDust, NickelDust, SilverDust, TinDust, BauxiteDust, CoalDust, CupronickelIngot, CupronickelDust, ElectrumDust, ElectrumIngot, InvarIngot, InvarDust, IronDust, ManganeseIngot, ManganeseDust, QuartzDust, SaltDust, SiliconIngot, SiliconDust, SodiumIngot, SodiumDust, StainlesssteelDust, StainlesssteelIngot, SteelDust, SteelIngot, TitaniumIngot, TitaniumDust;
+    public static Item BronzeIngot, Aluminum_Ingot, ChromeIngot,
+            TinIngot, CopperIngot, NickelIngot, AntimonyIngot,
+            LeadIngot, SilverIngot, CupronickelIngot, CupronickelDust,
+            ElectrumDust, ElectrumIngot, InvarIngot,  ManganeseIngot,
+            SiliconIngot, SodiumIngot, Stainless_steelIngot, SteelIngot, TitaniumIngot;
+    @ObjectHolder("modernindustrialization:dust")
+    public static Item GoldDust,  Aluminum_Dust, BronzeDust, ChromeDust, AntimonyDust, CopperDust, LeadDust, NickelDust,
+            SilverDust, TinDust, BauxiteDust, CoalDust, InvarDust, IronDust, ManganeseDust, QuartzDust, SaltDust,
+            SiliconDust, SodiumDust, Stainless_steelDust, SteelDust, TitaniumDust;
     public static OreBlock AluminiumOre;
 }
