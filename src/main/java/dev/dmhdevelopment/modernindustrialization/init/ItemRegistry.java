@@ -16,4 +16,6 @@ public class ItemRegistry {
             SilverDust, TinDust, BauxiteDust, CoalDust, InvarDust, IronDust, ManganeseDust, QuartzDust, SaltDust,
             SiliconDust, SodiumDust, Stainless_steelDust, SteelDust, TitaniumDust;
     public static OreBlock AluminiumOre;
+    @ObjectHolder("modernindustrialization:craft_block")
+    public static Item AluminiumBolt, AluminiumBlade, AluminiumCrushedDust, AluminiumCurvedPlate, AluminiumDoubleIngot, AluminiumGear, AluminiumLargePlate, AluminiumNugget, AluminiumRod, AluminiumPlate, AluminiumRing, AluminiumRotor, AluminiumTinyDust, AluminiumWire;
 }

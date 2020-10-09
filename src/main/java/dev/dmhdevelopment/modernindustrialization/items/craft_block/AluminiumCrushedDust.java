@@ -1,10 +1,10 @@
-package dev.dmhdevelopment.modernindustrialization.items.blade;
+package dev.dmhdevelopment.modernindustrialization.items.craft_block;
 
 import dev.dmhdevelopment.modernindustrialization.utils.ModernIndustrializationCreativeTab;
 import net.minecraft.item.Item;
 
-public class Aluminum_blade extends Item {
-    public Aluminum_blade() {
+public class AluminiumCrushedDust extends Item {
+    public AluminiumCrushedDust() {
         super(new Item.Properties().group(ModernIndustrializationCreativeTab.ModernIndustrializationCreativeTab));
     }
 }

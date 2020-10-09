@@ -1,7 +1,9 @@
 package dev.dmhdevelopment.modernindustrialization;
 
 import dev.dmhdevelopment.modernindustrialization.init.ItemRegistry;
+import dev.dmhdevelopment.modernindustrialization.items.craft_block.*;
 import dev.dmhdevelopment.modernindustrialization.items.dust.*;
+import dev.dmhdevelopment.modernindustrialization.items.craft_block.AluminiumBolt;
 import dev.dmhdevelopment.modernindustrialization.items.dust.ElectrumIngot;
 import dev.dmhdevelopment.modernindustrialization.items.dust.InvarIngot;
 import dev.dmhdevelopment.modernindustrialization.items.ingot.ManganeseIngot;
@@ -48,6 +50,20 @@ public class ModernIndustrialization
                             //алюминий
                             ItemRegistry.Aluminum_Ingot = new Aluminum_Ingot().setRegistryName(location("aluminum_ingot")),
                             ItemRegistry.Aluminum_Dust = new Aluminum_Dust().setRegistryName(location("aluminum_dust")),
+                            ItemRegistry.AluminiumBlade = new AluminiumBlade().setRegistryName(location("aluminum_blade")),
+                            ItemRegistry.AluminiumBolt = new AluminiumBolt().setRegistryName(location("aluminum_bolt")),
+                            ItemRegistry.AluminiumCrushedDust = new AluminiumCrushedDust().setRegistryName(location("aluminum_crushed_dust")),
+                            ItemRegistry.AluminiumCurvedPlate = new AluminiumCurvedPlate().setRegistryName(location("aluminum_curved_plate")),
+                            ItemRegistry.AluminiumDoubleIngot = new AluminiumDoubleIngot().setRegistryName(location("aluminum_double_ingot")),
+                            ItemRegistry.AluminiumGear = new AluminiumGear().setRegistryName(location("aluminum_gear")),
+                            ItemRegistry.AluminiumLargePlate = new AluminiumLargePlate().setRegistryName(location("aluminum_large_plate")),
+                            ItemRegistry.AluminiumNugget = new AluminiumNugget().setRegistryName(location("aluminum_nugget")),
+                            ItemRegistry.AluminiumPlate = new AluminiumPlate().setRegistryName(location("aluminum_plate")),
+                            ItemRegistry.AluminiumRing = new AluminiumRing().setRegistryName(location("aluminum_ring")),
+                            ItemRegistry.AluminiumRod = new AluminiumRod().setRegistryName(location("aluminum_rod")),
+                            ItemRegistry.AluminiumRotor = new AluminiumRotor().setRegistryName(location("aluminum_rotor")),
+                            ItemRegistry.AluminiumTinyDust = new AluminiumTinyDust().setRegistryName(location("aluminum_tiny_dust")),
+                            ItemRegistry.AluminiumWire = new AluminiumWire().setRegistryName(location("aluminum_wire")),
                             //бронза
                             ItemRegistry.BronzeIngot = new BronzeIngot().setRegistryName(location("bronze_ingot")),
                             ItemRegistry.BronzeDust = new BronzeDust().setRegistryName(location("bronze_dust")),
