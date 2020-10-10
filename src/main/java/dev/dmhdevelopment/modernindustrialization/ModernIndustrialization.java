@@ -3,6 +3,7 @@ package dev.dmhdevelopment.modernindustrialization;
 import dev.dmhdevelopment.modernindustrialization.init.ItemRegistry;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Aluminium.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Bronze.*;
+import dev.dmhdevelopment.modernindustrialization.items.craft_block.Chrome.*;
 import dev.dmhdevelopment.modernindustrialization.items.dust.*;
 import dev.dmhdevelopment.modernindustrialization.items.dust.ElectrumIngot;
 import dev.dmhdevelopment.modernindustrialization.items.dust.InvarIngot;
@@ -82,6 +83,12 @@ public class ModernIndustrialization
                             //хром
                             ItemRegistry.ChromeIngot = new ChromeIngot().setRegistryName(location("chrome_ingot")),
                             ItemRegistry.ChromeDust = new ChromeDust().setRegistryName(location("chrome_dust")),
+                            ItemRegistry.ChromeCrushedDust = new ChromeCrushedDust().setRegistryName(location("chrome_crushed_dust")),
+                            ItemRegistry.ChromeDoubleIngot = new ChromeDoubleIngot().setRegistryName(location("chrome_double_ingot")),
+                            ItemRegistry.ChromeLargePlate = new ChromeLargePlate().setRegistryName(location("chrome_large_plate")),
+                            ItemRegistry.ChromeNugget = new ChromeNugget().setRegistryName(location("chrome_crushed_dust")),
+                            ItemRegistry.ChromePlate = new ChromePlate().setRegistryName(location("chrome_double_ingot")),
+                            ItemRegistry.ChromeTinyDust = new ChromeTinyDust().setRegistryName(location("chrome_large_plate")),
                             //золото
                             ItemRegistry.GoldDust = new GoldDust().setRegistryName(location("gold_dust")),
                             //тин
