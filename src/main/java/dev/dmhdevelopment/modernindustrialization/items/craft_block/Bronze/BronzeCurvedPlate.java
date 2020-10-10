@@ -1,10 +1,10 @@
-package dev.dmhdevelopment.modernindustrialization.items.craft_block;
+package dev.dmhdevelopment.modernindustrialization.items.craft_block.Bronze;
 
 import dev.dmhdevelopment.modernindustrialization.utils.ModernIndustrializationCreativeTab;
 import net.minecraft.item.Item;
 
-public class AluminiumBolt extends Item {
-    public AluminiumBolt() {
+public class BronzeCurvedPlate extends Item {
+    public BronzeCurvedPlate() {
         super(new Item.Properties().group(ModernIndustrializationCreativeTab.ModernIndustrializationCreativeTab));
     }
 }

@@ -1,10 +1,10 @@
-package dev.dmhdevelopment.modernindustrialization.items.craft_block;
+package dev.dmhdevelopment.modernindustrialization.items.craft_block.Aluminium;
 
 import dev.dmhdevelopment.modernindustrialization.utils.ModernIndustrializationCreativeTab;
 import net.minecraft.item.Item;
 
-public class AluminiumRod extends Item {
-    public AluminiumRod() {
+public class AluminiumGear extends Item {
+    public AluminiumGear() {
         super(new Item.Properties().group(ModernIndustrializationCreativeTab.ModernIndustrializationCreativeTab));
     }
 }

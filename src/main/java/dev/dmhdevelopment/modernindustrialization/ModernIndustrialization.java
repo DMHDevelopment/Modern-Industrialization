@@ -1,9 +1,9 @@
 package dev.dmhdevelopment.modernindustrialization;
 
 import dev.dmhdevelopment.modernindustrialization.init.ItemRegistry;
-import dev.dmhdevelopment.modernindustrialization.items.craft_block.*;
+import dev.dmhdevelopment.modernindustrialization.items.craft_block.Aluminium.*;
+import dev.dmhdevelopment.modernindustrialization.items.craft_block.Bronze.*;
 import dev.dmhdevelopment.modernindustrialization.items.dust.*;
-import dev.dmhdevelopment.modernindustrialization.items.craft_block.AluminiumBolt;
 import dev.dmhdevelopment.modernindustrialization.items.dust.ElectrumIngot;
 import dev.dmhdevelopment.modernindustrialization.items.dust.InvarIngot;
 import dev.dmhdevelopment.modernindustrialization.items.ingot.ManganeseIngot;
@@ -67,6 +67,18 @@ public class ModernIndustrialization
                             //бронза
                             ItemRegistry.BronzeIngot = new BronzeIngot().setRegistryName(location("bronze_ingot")),
                             ItemRegistry.BronzeDust = new BronzeDust().setRegistryName(location("bronze_dust")),
+                            ItemRegistry.BronzeBlade = new BronzeBlade().setRegistryName(location("bronze_blade")),
+                            ItemRegistry.BronzeBolt = new BronzeBolt().setRegistryName(location("bronze_bolt")),
+                            ItemRegistry.BronzeGear = new BronzeGear().setRegistryName(location("bronze_gear")),
+                            ItemRegistry.BronzeCurvedPlate = new BronzeCurvedPlate().setRegistryName(location("bronze_curved_plate")),
+                            ItemRegistry.BronzeDoubleIngot = new BronzeDoubleIngot().setRegistryName(location("bronze_double_ingot")),
+                            ItemRegistry.BronzeLargePlate = new BronzeLargePlate().setRegistryName(location("bronze_large_plate")),
+                            ItemRegistry.BronzeNugget = new BronzeNugget().setRegistryName(location("bronze_nugget")),
+                            ItemRegistry.BronzePlate = new BronzePlate().setRegistryName(location("bronze_plate")),
+                            ItemRegistry.BronzeRing = new BronzeRing().setRegistryName(location("bronze_ring")),
+                            ItemRegistry.BronzeRod = new BronzeRod().setRegistryName(location("bronze_rod")),
+                            ItemRegistry.BronzeRotor = new BronzeRotor().setRegistryName(location("bronze_rotor")),
+                            ItemRegistry.BronzeTinyDust = new BronzeTinyDust().setRegistryName(location("bronze_tiny_dust")),
                             //хром
                             ItemRegistry.ChromeIngot = new ChromeIngot().setRegistryName(location("chrome_ingot")),
                             ItemRegistry.ChromeDust = new ChromeDust().setRegistryName(location("chrome_dust")),
