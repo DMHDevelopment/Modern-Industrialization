@@ -4,6 +4,7 @@ import dev.dmhdevelopment.modernindustrialization.init.ItemRegistry;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Aluminium.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Bronze.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Chrome.*;
+import dev.dmhdevelopment.modernindustrialization.items.craft_block.Gold.*;
 import dev.dmhdevelopment.modernindustrialization.items.dust.*;
 import dev.dmhdevelopment.modernindustrialization.items.dust.ElectrumIngot;
 import dev.dmhdevelopment.modernindustrialization.items.dust.InvarIngot;
@@ -21,6 +22,8 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import static dev.dmhdevelopment.modernindustrialization.init.ItemRegistry.GoldTinyDust;
 
 @Mod("modernindustrialization")
 public class ModernIndustrialization
@@ -91,6 +94,12 @@ public class ModernIndustrialization
                             ItemRegistry.ChromeTinyDust = new ChromeTinyDust().setRegistryName(location("chrome_large_plate")),
                             //золото
                             ItemRegistry.GoldDust = new GoldDust().setRegistryName(location("gold_dust")),
+                            ItemRegistry.GoldCrushedDust = new GoldCrushedDust().setRegistryName(location("gold_crushed_dust")),
+                            ItemRegistry.GoldCurvedPlate = new GoldCurvedPlate().setRegistryName(location("gold_curved_plate")),
+                            ItemRegistry.GoldDoubleIngot = new GoldDoubleIngot().setRegistryName(location("gold_double_ingot")),
+                            ItemRegistry.GoldLargePlate = new GoldLargePlate().setRegistryName(location("gold_large_plate")),
+                            ItemRegistry.GoldPlate = new GoldPlate().setRegistryName(location("gold_plate")),
+                            ItemRegistry.GoldTinyDust = new GoldTinyDust().setRegistryName(location("gold_tiny_dust")),
                             //тин
                             ItemRegistry.TinIngot = new TinIngot().setRegistryName(location("tin_ingot")),
                             ItemRegistry.TinDust = new TinDust().setRegistryName(location("tin_dust")),
