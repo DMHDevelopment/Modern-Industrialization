@@ -12,10 +12,21 @@ public class ItemRegistry {
             ElectrumDust, ElectrumIngot, InvarIngot,  ManganeseIngot,
             SiliconIngot, SodiumIngot, Stainless_steelIngot, SteelIngot, TitaniumIngot;
     @ObjectHolder("modernindustrialization:dust")
-    public static Item GoldDust,  Aluminum_Dust, BronzeDust, ChromeDust, AntimonyDust, CopperDust, LeadDust, NickelDust,
-            SilverDust, TinDust, BauxiteDust, CoalDust, InvarDust, IronDust, ManganeseDust, QuartzDust, SaltDust,
-            SiliconDust, SodiumDust, Stainless_steelDust, SteelDust, TitaniumDust;
-    public static OreBlock AluminiumOre;
+    public static Item GoldDust,  Aluminum_Dust, BronzeDust, ChromeDust, AntimonyDust, CopperDust,
+            LeadDust, NickelDust, SilverDust, TinDust, BauxiteDust, CoalDust, InvarDust,
+            IronDust, ManganeseDust, QuartzDust, SaltDust, SiliconDust, SodiumDust,
+            Stainless_steelDust, SteelDust, TitaniumDust;
+    //public static OreBlock AluminiumOre;
     @ObjectHolder("modernindustrialization:craft_block")
-    public static Item AluminiumBolt, AluminiumBlade, AluminiumCrushedDust, AluminiumCurvedPlate, AluminiumDoubleIngot, AluminiumGear, AluminiumLargePlate, AluminiumNugget, AluminiumRod, AluminiumPlate, AluminiumRing, AluminiumRotor, AluminiumTinyDust, AluminiumWire, BronzeBolt, BronzeBlade, BronzeGear, BronzeDoubleIngot, BronzeCurvedPlate, BronzeNugget, BronzeLargePlate, BronzePlate, BronzeRotor, BronzeRing, BronzeRod, BronzeTinyDust, ChromeLargePlate, ChromeDoubleIngot, ChromeCrushedDust, ChromeNugget, ChromePlate, ChromeTinyDust, GoldCrushedDust, GoldCurvedPlate, GoldDoubleIngot, GoldTinyDust, GoldPlate, GoldLargePlate;
+    public static Item AluminiumBolt, AluminiumBlade, AluminiumCrushedDust, AluminiumCurvedPlate,
+            AluminiumDoubleIngot, AluminiumGear, AluminiumLargePlate, AluminiumNugget,
+            AluminiumRod, AluminiumPlate, AluminiumRing, AluminiumRotor, AluminiumTinyDust,
+            AluminiumWire, BronzeBolt, BronzeBlade, BronzeGear, BronzeDoubleIngot,
+            BronzeCurvedPlate, BronzeNugget, BronzeLargePlate, BronzePlate, BronzeRotor,
+            BronzeRing, BronzeRod, BronzeTinyDust, ChromeLargePlate,
+            ChromeDoubleIngot, ChromeCrushedDust, ChromeNugget, ChromePlate, ChromeTinyDust,
+            GoldCrushedDust, GoldCurvedPlate, GoldDoubleIngot, GoldTinyDust, GoldPlate,
+            GoldLargePlate, TinBolt, TinBlade, TinCrushedDust, TinCurvedPlate, TinDoubleIngot,
+            TinGear, TinLargePlate, TinNugget, TinRing, TinPlate, TinRod, TinRotor, TinTinyDust,
+            TinWire;
 }

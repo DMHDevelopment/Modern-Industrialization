@@ -5,6 +5,7 @@ import dev.dmhdevelopment.modernindustrialization.items.craft_block.Aluminium.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Bronze.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Chrome.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Gold.*;
+import dev.dmhdevelopment.modernindustrialization.items.craft_block.Tin.*;
 import dev.dmhdevelopment.modernindustrialization.items.dust.*;
 import dev.dmhdevelopment.modernindustrialization.items.dust.ElectrumIngot;
 import dev.dmhdevelopment.modernindustrialization.items.dust.InvarIngot;
@@ -24,6 +25,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import static dev.dmhdevelopment.modernindustrialization.init.ItemRegistry.GoldTinyDust;
+import static dev.dmhdevelopment.modernindustrialization.init.ItemRegistry.TinCurvedPlate;
 
 @Mod("modernindustrialization")
 public class ModernIndustrialization
@@ -103,6 +105,20 @@ public class ModernIndustrialization
                             //тин
                             ItemRegistry.TinIngot = new TinIngot().setRegistryName(location("tin_ingot")),
                             ItemRegistry.TinDust = new TinDust().setRegistryName(location("tin_dust")),
+                            ItemRegistry.TinBlade = new TinBlade().setRegistryName(location("tin_blade")),
+                            ItemRegistry.TinBolt = new TinBolt().setRegistryName(location("tin_bolt")),
+                            ItemRegistry.TinCrushedDust = new TinCrushedDust().setRegistryName(location("tin_crushed_dust")),
+                            ItemRegistry.TinCurvedPlate = new TinCurvedPlate().setRegistryName(location("tin_curved_plate")),
+                            ItemRegistry.TinDoubleIngot = new TinDoubleIngot().setRegistryName(location("tin_double_ingot")),
+                            ItemRegistry.TinGear = new TinGear().setRegistryName(location("tin_gear")),
+                            ItemRegistry.TinLargePlate = new TinLargePlate().setRegistryName(location("tin_large_plate")),
+                            ItemRegistry.TinNugget = new TinNugget().setRegistryName(location("tin_nugget")),
+                            ItemRegistry.TinPlate = new TinPlate().setRegistryName(location("tin_plate")),
+                            ItemRegistry.TinRing = new TinRing().setRegistryName(location("tin_ring")),
+                            ItemRegistry.TinRod = new TinRod().setRegistryName(location("tin_rod")),
+                            ItemRegistry.TinRotor = new TinRotor().setRegistryName(location("tin_rotor")),
+                            ItemRegistry.TinTinyDust = new TinTinyDust().setRegistryName(location("tin_tiny_dust")),
+                            ItemRegistry.TinWire = new TinWire().setRegistryName(location("tin_wire")),
                             //медь
                             ItemRegistry.CopperIngot = new CopperIngot().setRegistryName(location("copper_ingot")),
                             ItemRegistry.CopperDust = new CopperDust().setRegistryName(location("copper_dust")),
