@@ -31,5 +31,6 @@ public class ItemRegistry {
             TinWire, CopperBolt, CopperBlade, CopperCrushedDust, CopperCurvedPlate, CopperDoubleIngot,
             CopperFineWire, CopperGear, CopperLargePlate, CopperNugget, CopperPlate, CopperRing,
             CopperRod, CopperRotor, CopperTinyDust, CopperWire, NickelCrushedDust, NickelCurvedPlate,
-            NickelDoubleIngot, NickelLargePlate, NickelNugget, NickelPlate, NickelTinyDust;
+            NickelDoubleIngot, NickelLargePlate, NickelNugget, NickelPlate, NickelTinyDust,
+            AntimonyTinyDust, AntimonyCrushedDust, AntimonyNugget;
 }

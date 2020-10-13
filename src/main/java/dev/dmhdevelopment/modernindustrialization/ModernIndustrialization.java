@@ -2,6 +2,9 @@ package dev.dmhdevelopment.modernindustrialization;
 
 import dev.dmhdevelopment.modernindustrialization.init.ItemRegistry;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Aluminium.*;
+import dev.dmhdevelopment.modernindustrialization.items.craft_block.Antimony.AntimonyCrushedDust;
+import dev.dmhdevelopment.modernindustrialization.items.craft_block.Antimony.AntimonyNugget;
+import dev.dmhdevelopment.modernindustrialization.items.craft_block.Antimony.AntimonyTinyDust;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Bronze.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Chrome.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Copper.*;
@@ -149,6 +152,9 @@ public class ModernIndustrialization
                             //антимоний
                             ItemRegistry.AntimonyIngot = new AntimonyIngot().setRegistryName(location("antimony_ingot")),
                             ItemRegistry.AntimonyDust = new AntimonyDust().setRegistryName(location("antimony_dust")),
+                            ItemRegistry.AntimonyCrushedDust = new AntimonyCrushedDust().setRegistryName(location("antimony_ingot")),
+                            ItemRegistry.AntimonyNugget = new AntimonyNugget().setRegistryName(location("antimony_dust")),
+                            ItemRegistry.AntimonyTinyDust = new AntimonyTinyDust().setRegistryName(location("antimony_ingot")),
                             //свинец
                             ItemRegistry.LeadIngot = new LeadIngot().setRegistryName(location("lead_ingot")),
                             ItemRegistry.LeadDust = new LeadDust().setRegistryName(location("lead_dust")),
