@@ -6,6 +6,7 @@ import dev.dmhdevelopment.modernindustrialization.items.craft_block.Bronze.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Chrome.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Copper.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Gold.*;
+import dev.dmhdevelopment.modernindustrialization.items.craft_block.Nickel.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Tin.*;
 import dev.dmhdevelopment.modernindustrialization.items.dust.*;
 import dev.dmhdevelopment.modernindustrialization.items.dust.ElectrumIngot;
@@ -138,6 +139,13 @@ public class ModernIndustrialization
                             //никель
                             ItemRegistry.NickelIngot = new NickelIngot().setRegistryName(location("nickel_ingot")),
                             ItemRegistry.NickelDust = new NickelDust().setRegistryName(location("nickel_dust")),
+                            ItemRegistry.NickelCrushedDust = new NickelCrushedDust().setRegistryName(location("nickel_crushed_dust")),
+                            ItemRegistry.NickelCurvedPlate = new NickelCurvedPlate().setRegistryName(location("nickel_curved_plate")),
+                            ItemRegistry.NickelDoubleIngot = new NickelDoubleIngot().setRegistryName(location("nickel_double_ingot")),
+                            ItemRegistry.NickelLargePlate = new NickelLargePlate().setRegistryName(location("nickel_large_plate")),
+                            ItemRegistry.NickelNugget = new NickelNugget().setRegistryName(location("nickel_nugget")),
+                            ItemRegistry.NickelPlate = new NickelPlate().setRegistryName(location("nickel_plate")),
+                            ItemRegistry.NickelTinyDust = new NickelTinyDust().setRegistryName(location("nickel_tiny_dust")),
                             //антимоний
                             ItemRegistry.AntimonyIngot = new AntimonyIngot().setRegistryName(location("antimony_ingot")),
                             ItemRegistry.AntimonyDust = new AntimonyDust().setRegistryName(location("antimony_dust")),
