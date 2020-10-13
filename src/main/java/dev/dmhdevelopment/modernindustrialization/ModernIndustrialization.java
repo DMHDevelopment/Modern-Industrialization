@@ -9,6 +9,7 @@ import dev.dmhdevelopment.modernindustrialization.items.craft_block.Bronze.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Chrome.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Copper.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Gold.*;
+import dev.dmhdevelopment.modernindustrialization.items.craft_block.Lead.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Nickel.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Tin.*;
 import dev.dmhdevelopment.modernindustrialization.items.dust.*;
@@ -158,6 +159,13 @@ public class ModernIndustrialization
                             //свинец
                             ItemRegistry.LeadIngot = new LeadIngot().setRegistryName(location("lead_ingot")),
                             ItemRegistry.LeadDust = new LeadDust().setRegistryName(location("lead_dust")),
+                            ItemRegistry.LeadCrushedDust = new LeadCrushedDust().setRegistryName(location("lead_crushed_dust")),
+                            ItemRegistry.LeadCurvedPlate = new LeadCurvedPlate().setRegistryName(location("lead_curved_plate")),
+                            ItemRegistry.LeadDoubleIngot = new LeadDoubleIngot().setRegistryName(location("lead_double_ingot")),
+                            ItemRegistry.LeadLargePlate = new LeadLargePlate().setRegistryName(location("lead_large_plate")),
+                            ItemRegistry.LeadNugget = new LeadNugget().setRegistryName(location("lead_nugget")),
+                            ItemRegistry.LeadPlate = new LeadPlate().setRegistryName(location("lead_plate")),
+                            ItemRegistry.LeadTinyDust = new LeadTinyDust().setRegistryName(location("lead_tiny_dust")),
                             //серебро
                             ItemRegistry.SilverIngot = new SilverIngot().setRegistryName(location("silver_ingot")),
                             ItemRegistry.SilverDust = new SilverDust().setRegistryName(location("silver_dust")),
