@@ -28,5 +28,7 @@ public class ItemRegistry {
             GoldCrushedDust, GoldCurvedPlate, GoldDoubleIngot, GoldTinyDust, GoldPlate,
             GoldLargePlate, TinBolt, TinBlade, TinCrushedDust, TinCurvedPlate, TinDoubleIngot,
             TinGear, TinLargePlate, TinNugget, TinRing, TinPlate, TinRod, TinRotor, TinTinyDust,
-            TinWire;
+            TinWire, CopperBolt, CopperBlade, CopperCrushedDust, CopperCurvedPlate, CopperDoubleIngot,
+            CopperFineWire, CopperGear, CopperLargePlate, CopperNugget, CopperPlate, CopperRing,
+            CopperRod, CopperRotor, CopperTinyDust, CopperWire;
 }

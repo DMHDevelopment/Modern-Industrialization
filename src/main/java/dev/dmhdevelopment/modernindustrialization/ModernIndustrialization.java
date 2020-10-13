@@ -4,6 +4,7 @@ import dev.dmhdevelopment.modernindustrialization.init.ItemRegistry;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Aluminium.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Bronze.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Chrome.*;
+import dev.dmhdevelopment.modernindustrialization.items.craft_block.Copper.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Gold.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Tin.*;
 import dev.dmhdevelopment.modernindustrialization.items.dust.*;
@@ -122,6 +123,18 @@ public class ModernIndustrialization
                             //медь
                             ItemRegistry.CopperIngot = new CopperIngot().setRegistryName(location("copper_ingot")),
                             ItemRegistry.CopperDust = new CopperDust().setRegistryName(location("copper_dust")),
+                            ItemRegistry.CopperBlade = new CopperBlade().setRegistryName(location("copper_blade")),
+                            ItemRegistry.CopperBolt = new CopperBolt().setRegistryName(location("copper_bolt")),
+                            ItemRegistry.CopperCrushedDust = new CopperCrushedDust().setRegistryName(location("copper_crushed_dust")),
+                            ItemRegistry.CopperCurvedPlate = new CopperCurvedPlate().setRegistryName(location("copper_curved_plate")),
+                            ItemRegistry.CopperDoubleIngot = new CopperDoubleIngot().setRegistryName(location("copper_double_ingot")),
+                            ItemRegistry.CopperFineWire = new CopperFineWire().setRegistryName(location("copper_fine_wire")),
+                            ItemRegistry.CopperPlate = new CopperPlate().setRegistryName(location("copper_plate")),
+                            ItemRegistry.CopperRing = new CopperRing().setRegistryName(location("copper_ring")),
+                            ItemRegistry.CopperRod = new CopperRod().setRegistryName(location("copper_rod")),
+                            ItemRegistry.CopperRotor = new CopperRotor().setRegistryName(location("copper_rotor")),
+                            ItemRegistry.CopperTinyDust = new CopperTinyDust().setRegistryName(location("copper_tiny_dust")),
+                            ItemRegistry.CopperWire = new CopperWire().setRegistryName(location("copper_wire")),
                             //никель
                             ItemRegistry.NickelIngot = new NickelIngot().setRegistryName(location("nickel_ingot")),
                             ItemRegistry.NickelDust = new NickelDust().setRegistryName(location("nickel_dust")),
