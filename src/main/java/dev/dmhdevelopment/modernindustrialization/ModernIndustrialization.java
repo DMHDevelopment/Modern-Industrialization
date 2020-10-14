@@ -9,6 +9,8 @@ import dev.dmhdevelopment.modernindustrialization.items.craft_block.Bauxite.Baux
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Bauxite.BauxiteTinyDust;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Bronze.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Chrome.*;
+import dev.dmhdevelopment.modernindustrialization.items.craft_block.Coal.CoalCrushedDust;
+import dev.dmhdevelopment.modernindustrialization.items.craft_block.Coal.CoalTinyDust;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Copper.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Gold.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Lead.*;
@@ -145,6 +147,7 @@ public class ModernIndustrialization
                             ItemRegistry.CopperGear = new CopperGear().setRegistryName(location("copper_gear")),
                             ItemRegistry.CopperLargePlate = new CopperLargePlate().setRegistryName(location("copper_large_plate")),
                             ItemRegistry.CopperNugget = new CopperNugget().setRegistryName(location("copper_nugget")),
+                            ItemRegistry.CopperWire = new CopperWire().setRegistryName(location("copper_wire")),
                             //никель
                             ItemRegistry.NickelIngot = new NickelIngot().setRegistryName(location("nickel_ingot")),
                             ItemRegistry.NickelDust = new NickelDust().setRegistryName(location("nickel_dust")),
@@ -187,6 +190,8 @@ public class ModernIndustrialization
                             ItemRegistry.BauxiteTinyDust = new BauxiteTinyDust().setRegistryName(location("bauxite_tiny_dust")),
                             //уголь
                             ItemRegistry.CoalDust = new CoalDust().setRegistryName(location("coal_dust")),
+                            ItemRegistry.CoalCrushedDust = new CoalCrushedDust().setRegistryName(location("coal_crushed_dust")),
+                            ItemRegistry.CoalTinyDust = new CoalTinyDust().setRegistryName(location("coal_tiny_dust")),
                             //супроникель
                             ItemRegistry.CupronickelIngot = new CupronickelIngot().setRegistryName(location("cupronickel_ingot")),
                             ItemRegistry.CupronickelDust = new CupronickelDust().setRegistryName(location("cupronickel_dust")),
