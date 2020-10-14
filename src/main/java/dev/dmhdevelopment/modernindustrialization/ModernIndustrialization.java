@@ -142,7 +142,9 @@ public class ModernIndustrialization
                             ItemRegistry.CopperRod = new CopperRod().setRegistryName(location("copper_rod")),
                             ItemRegistry.CopperRotor = new CopperRotor().setRegistryName(location("copper_rotor")),
                             ItemRegistry.CopperTinyDust = new CopperTinyDust().setRegistryName(location("copper_tiny_dust")),
-                            ItemRegistry.CopperWire = new CopperWire().setRegistryName(location("copper_wire")),
+                            ItemRegistry.CopperGear = new CopperGear().setRegistryName(location("copper_gear")),
+                            ItemRegistry.CopperLargePlate = new CopperLargePlate().setRegistryName(location("copper_large_plate")),
+                            ItemRegistry.CopperNugget = new CopperNugget().setRegistryName(location("copper_nugget")),
                             //никель
                             ItemRegistry.NickelIngot = new NickelIngot().setRegistryName(location("nickel_ingot")),
                             ItemRegistry.NickelDust = new NickelDust().setRegistryName(location("nickel_dust")),
