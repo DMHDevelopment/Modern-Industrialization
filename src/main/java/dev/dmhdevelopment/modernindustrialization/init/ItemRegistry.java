@@ -35,5 +35,5 @@ public class ItemRegistry {
             AntimonyTinyDust, AntimonyCrushedDust, AntimonyNugget, LeadDoubleIngot, LeadCrushedDust,
             LeadCurvedPlate, LeadNugget, LeadPlate, LeadLargePlate, LeadTinyDust, SilverDoubleIngot,
             SilverCrushedDust, SilverCurvedPlate, SilverLargePlate, SilverNugget, SilverPlate,
-            SilverTinyDust;
+            SilverTinyDust, BauxiteTinyDust, BauxiteCrushedDust;
 }

@@ -5,6 +5,8 @@ import dev.dmhdevelopment.modernindustrialization.items.craft_block.Aluminium.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Antimony.AntimonyCrushedDust;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Antimony.AntimonyNugget;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Antimony.AntimonyTinyDust;
+import dev.dmhdevelopment.modernindustrialization.items.craft_block.Bauxite.BauxiteCrushedDust;
+import dev.dmhdevelopment.modernindustrialization.items.craft_block.Bauxite.BauxiteTinyDust;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Bronze.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Chrome.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Copper.*;
@@ -179,6 +181,8 @@ public class ModernIndustrialization
                             ItemRegistry.SilverTinyDust = new SilverTinyDust().setRegistryName(location("silver_tiny_dust")),
                             //баксит
                             ItemRegistry.BauxiteDust = new BauxiteDust().setRegistryName(location("bauxite_dust")),
+                            ItemRegistry.BauxiteCrushedDust = new BauxiteCrushedDust().setRegistryName(location("bauxite_crushed_dust")),
+                            ItemRegistry.BauxiteTinyDust = new BauxiteTinyDust().setRegistryName(location("bauxite_tiny_dust")),
                             //уголь
                             ItemRegistry.CoalDust = new CoalDust().setRegistryName(location("coal_dust")),
                             //супроникель
