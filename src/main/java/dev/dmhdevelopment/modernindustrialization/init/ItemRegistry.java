@@ -33,5 +33,7 @@ public class ItemRegistry {
             CopperRod, CopperRotor, CopperTinyDust, CopperWire, NickelCrushedDust, NickelCurvedPlate,
             NickelDoubleIngot, NickelLargePlate, NickelNugget, NickelPlate, NickelTinyDust,
             AntimonyTinyDust, AntimonyCrushedDust, AntimonyNugget, LeadDoubleIngot, LeadCrushedDust,
-            LeadCurvedPlate, LeadNugget, LeadPlate, LeadLargePlate, LeadTinyDust;
+            LeadCurvedPlate, LeadNugget, LeadPlate, LeadLargePlate, LeadTinyDust, SilverDoubleIngot,
+            SilverCrushedDust, SilverCurvedPlate, SilverLargePlate, SilverNugget, SilverPlate,
+            SilverTinyDust;
 }

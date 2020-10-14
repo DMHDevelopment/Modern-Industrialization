@@ -11,6 +11,7 @@ import dev.dmhdevelopment.modernindustrialization.items.craft_block.Copper.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Gold.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Lead.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Nickel.*;
+import dev.dmhdevelopment.modernindustrialization.items.craft_block.Silver.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Tin.*;
 import dev.dmhdevelopment.modernindustrialization.items.dust.*;
 import dev.dmhdevelopment.modernindustrialization.items.dust.ElectrumIngot;
@@ -169,6 +170,13 @@ public class ModernIndustrialization
                             //серебро
                             ItemRegistry.SilverIngot = new SilverIngot().setRegistryName(location("silver_ingot")),
                             ItemRegistry.SilverDust = new SilverDust().setRegistryName(location("silver_dust")),
+                            ItemRegistry.SilverCrushedDust = new SilverCrushedDust().setRegistryName(location("silver_crushed_dust")),
+                            ItemRegistry.SilverCurvedPlate = new SilverCurvedPlate().setRegistryName(location("silver_curved_plate")),
+                            ItemRegistry.SilverDoubleIngot = new SilverDoubleIngot().setRegistryName(location("silver_double_ingot")),
+                            ItemRegistry.SilverLargePlate = new SilverLargePlate().setRegistryName(location("silver_dust")),
+                            ItemRegistry.SilverNugget = new SilverNugget().setRegistryName(location("silver_ingot")),
+                            ItemRegistry.SilverPlate = new SilverPlate().setRegistryName(location("silver_dust")),
+                            ItemRegistry.SilverTinyDust = new SilverTinyDust().setRegistryName(location("silver_tiny_dust")),
                             //баксит
                             ItemRegistry.BauxiteDust = new BauxiteDust().setRegistryName(location("bauxite_dust")),
                             //уголь
