@@ -12,6 +12,7 @@ import dev.dmhdevelopment.modernindustrialization.items.craft_block.Chrome.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Coal.CoalCrushedDust;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Coal.CoalTinyDust;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Copper.*;
+import dev.dmhdevelopment.modernindustrialization.items.craft_block.Cupronickel.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Gold.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Lead.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Nickel.*;
@@ -192,9 +193,14 @@ public class ModernIndustrialization
                             ItemRegistry.CoalDust = new CoalDust().setRegistryName(location("coal_dust")),
                             ItemRegistry.CoalCrushedDust = new CoalCrushedDust().setRegistryName(location("coal_crushed_dust")),
                             ItemRegistry.CoalTinyDust = new CoalTinyDust().setRegistryName(location("coal_tiny_dust")),
-                            //супроникель
+                            //купроникель
                             ItemRegistry.CupronickelIngot = new CupronickelIngot().setRegistryName(location("cupronickel_ingot")),
                             ItemRegistry.CupronickelDust = new CupronickelDust().setRegistryName(location("cupronickel_dust")),
+                            ItemRegistry.CupronickelDoubleIngot = new CupronickelDoubleIngot().setRegistryName(location("cupronickel_double_ingot")),
+                            ItemRegistry.CupronickelNugget = new CupronickelNugget().setRegistryName(location("cupronickel_nugget")),
+                            ItemRegistry.CupronickelPlate = new CupronickelPlate().setRegistryName(location("cupronickel_plate")),
+                            ItemRegistry.CupronickelTinyDust = new CupronickelTinyDust().setRegistryName(location("cupronickel_tiny_dust")),
+                            ItemRegistry.CupronickelWire = new CupronickelWire().setRegistryName(location("cupronickel_wire")),
                             //электрум
                             ItemRegistry.ElectrumIngot = new ElectrumIngot().setRegistryName(location("electrum_ingot")),
                             ItemRegistry.ElectrumDust = new ElectrumDust().setRegistryName(location("electrum_dust")),
