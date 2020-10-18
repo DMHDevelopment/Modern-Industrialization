@@ -31,6 +31,8 @@ import dev.dmhdevelopment.modernindustrialization.items.craft_block.Silicon.Sili
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Silicon.SiliconPlate;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Silicon.SiliconTinyDust;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Silver.*;
+import dev.dmhdevelopment.modernindustrialization.items.craft_block.Sodium.SodiumNugget;
+import dev.dmhdevelopment.modernindustrialization.items.craft_block.Sodium.SodiumTinyDust;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Tin.*;
 import dev.dmhdevelopment.modernindustrialization.items.dust.*;
 import dev.dmhdevelopment.modernindustrialization.items.dust.ElectrumIngot;
@@ -265,6 +267,8 @@ public class ModernIndustrialization
                             //содиум
                             ItemRegistry.SodiumIngot = new SodiumIngot().setRegistryName(location("sodium_ingot")),
                             ItemRegistry.SodiumDust = new SodiumDust().setRegistryName(location("sodium_dust")),
+                            ItemRegistry.SodiumNugget = new SodiumNugget().setRegistryName(location("sodium_nugget")),
+                            ItemRegistry.SodiumTinyDust = new SodiumTinyDust().setRegistryName(location("sodium_tiny_dust")),
                             //суперсталь
                             ItemRegistry.Stainless_steelIngot = new Stainless_steelIngot().setRegistryName(location("stainless_steel_ingot")),
                             ItemRegistry.Stainless_steelDust = new Stainless_steelDust().setRegistryName(location("stainless_steel_dust")),

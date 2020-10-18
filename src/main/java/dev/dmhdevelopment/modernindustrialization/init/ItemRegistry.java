@@ -43,5 +43,6 @@ public class ItemRegistry {
             IronDoubleIngot, IronCurvedPlate, IronCrushedDust, IronLargePlate, IronPlate,
             IronTinyDust, ManganeseNugget, ManganeseTinyDust, ManganeseCrushedDust,
             QuartzCrushedDust, QuartzTinyDust, SaltTinyDust, SaltCrushedDust,
-            SiliconPlate, SiliconNugget, SiliconDoubleIngot, SiliconTinyDust;
+            SiliconPlate, SiliconNugget, SiliconDoubleIngot, SiliconTinyDust, SodiumTinyDust,
+            SodiumNugget;
 }
