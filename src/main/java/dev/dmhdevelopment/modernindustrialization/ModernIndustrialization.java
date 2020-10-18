@@ -26,6 +26,10 @@ import dev.dmhdevelopment.modernindustrialization.items.craft_block.Quartz.Quart
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Quartz.QuartzTinyDust;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Salt.SaltCrushedDust;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Salt.SaltTinyDust;
+import dev.dmhdevelopment.modernindustrialization.items.craft_block.Silicon.SiliconDoubleIngot;
+import dev.dmhdevelopment.modernindustrialization.items.craft_block.Silicon.SiliconNugget;
+import dev.dmhdevelopment.modernindustrialization.items.craft_block.Silicon.SiliconPlate;
+import dev.dmhdevelopment.modernindustrialization.items.craft_block.Silicon.SiliconTinyDust;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Silver.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Tin.*;
 import dev.dmhdevelopment.modernindustrialization.items.dust.*;
@@ -254,6 +258,10 @@ public class ModernIndustrialization
                             //силикон
                             ItemRegistry.SiliconIngot = new SiliconIngot().setRegistryName(location("silicon_ingot")),
                             ItemRegistry.SiliconDust = new SiliconDust().setRegistryName(location("silicon_dust")),
+                            ItemRegistry.SiliconDoubleIngot = new SiliconDoubleIngot().setRegistryName(location("silicon_double_ingot")),
+                            ItemRegistry.SiliconNugget = new SiliconNugget().setRegistryName(location("silicon_nugget")),
+                            ItemRegistry.SiliconPlate = new SiliconPlate().setRegistryName(location("silicon_plate")),
+                            ItemRegistry.SiliconTinyDust = new SiliconTinyDust().setRegistryName(location("silicon_tiny_dust")),
                             //содиум
                             ItemRegistry.SodiumIngot = new SodiumIngot().setRegistryName(location("sodium_ingot")),
                             ItemRegistry.SodiumDust = new SodiumDust().setRegistryName(location("sodium_dust")),
