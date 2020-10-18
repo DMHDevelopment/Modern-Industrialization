@@ -24,6 +24,8 @@ import dev.dmhdevelopment.modernindustrialization.items.craft_block.Manganese.Ma
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Nickel.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Quartz.QuartzCrushedDust;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Quartz.QuartzTinyDust;
+import dev.dmhdevelopment.modernindustrialization.items.craft_block.Salt.SaltCrushedDust;
+import dev.dmhdevelopment.modernindustrialization.items.craft_block.Salt.SaltTinyDust;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Silver.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Tin.*;
 import dev.dmhdevelopment.modernindustrialization.items.dust.*;
@@ -245,8 +247,10 @@ public class ModernIndustrialization
                             ItemRegistry.QuartzDust = new QuartzDust().setRegistryName(location("quartz_dust")),
                             ItemRegistry.QuartzCrushedDust = new QuartzCrushedDust().setRegistryName(location("quartz_crushed_dust")),
                             ItemRegistry.QuartzTinyDust = new QuartzTinyDust().setRegistryName(location("quartz_tiny_dust")),
-                            //
+                            //salt(я незнаю как по русски)
                             ItemRegistry.SaltDust = new SaltDust().setRegistryName(location("salt_dust")),
+                            ItemRegistry.SaltCrushedDust = new SaltCrushedDust().setRegistryName(location("salt_crushed_dust")),
+                            ItemRegistry.SaltTinyDust = new SaltTinyDust().setRegistryName(location("salt_tiny_dust")),
                             //силикон
                             ItemRegistry.SiliconIngot = new SiliconIngot().setRegistryName(location("silicon_ingot")),
                             ItemRegistry.SiliconDust = new SiliconDust().setRegistryName(location("silicon_dust")),

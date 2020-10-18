@@ -42,5 +42,5 @@ public class ItemRegistry {
             InvarLargePlate, InvarGear, InvarDoubleIngot, InvarNugget, InvarPlate, InvarTinyDust,
             IronDoubleIngot, IronCurvedPlate, IronCrushedDust, IronLargePlate, IronPlate,
             IronTinyDust, ManganeseNugget, ManganeseTinyDust, ManganeseCrushedDust,
-            QuartzCrushedDust, QuartzTinyDust;
+            QuartzCrushedDust, QuartzTinyDust, SaltTinyDust, SaltCrushedDust;
 }
