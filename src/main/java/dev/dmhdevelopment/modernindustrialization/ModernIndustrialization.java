@@ -15,6 +15,7 @@ import dev.dmhdevelopment.modernindustrialization.items.craft_block.Copper.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Cupronickel.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Electrum.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Gold.*;
+import dev.dmhdevelopment.modernindustrialization.items.craft_block.Invar.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Lead.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Nickel.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Silver.*;
@@ -216,6 +217,12 @@ public class ModernIndustrialization
                             //инвар
                             ItemRegistry.InvarIngot = new InvarIngot().setRegistryName(location("invar_ingot")),
                             ItemRegistry.InvarDust = new InvarDust().setRegistryName(location("invar_dust")),
+                            ItemRegistry.InvarDoubleIngot = new InvarDoubleIngot().setRegistryName(location("invar_double_ingot")),
+                            ItemRegistry.InvarGear = new InvarGear().setRegistryName(location("invar_gear")),
+                            ItemRegistry.InvarLargePlate = new InvarLargePlate().setRegistryName(location("invar_large_plate")),
+                            ItemRegistry.InvarNugget = new InvarNugget().setRegistryName(location("invar_nugget")),
+                            ItemRegistry.InvarPlate = new InvarPlate().setRegistryName(location("invar_plate")),
+                            ItemRegistry.InvarTinyDust = new InvarTinyDust().setRegistryName(location("invar_tiny_dust")),
                             //железо
                             ItemRegistry.IronDust = new IronDust().setRegistryName(location("iron_dust")),
                             //марганец
