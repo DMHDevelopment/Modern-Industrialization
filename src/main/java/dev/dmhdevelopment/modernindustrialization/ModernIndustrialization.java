@@ -13,6 +13,7 @@ import dev.dmhdevelopment.modernindustrialization.items.craft_block.Coal.CoalCru
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Coal.CoalTinyDust;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Copper.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Cupronickel.*;
+import dev.dmhdevelopment.modernindustrialization.items.craft_block.Electrum.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Gold.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Lead.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Nickel.*;
@@ -204,6 +205,14 @@ public class ModernIndustrialization
                             //электрум
                             ItemRegistry.ElectrumIngot = new ElectrumIngot().setRegistryName(location("electrum_ingot")),
                             ItemRegistry.ElectrumDust = new ElectrumDust().setRegistryName(location("electrum_dust")),
+                            ItemRegistry.ElectrumCurvedPlate = new ElectrumCurvedPlate().setRegistryName(location("electrum_curved_plate")),
+                            ItemRegistry.ElectrumDoubleIngot = new ElectrumDoubleIngot().setRegistryName(location("electrum_double_ingot")),
+                            ItemRegistry.ElectrumFineWire = new ElectrumFineWire().setRegistryName(location("electrum_fine_wire")),
+                            ItemRegistry.ElectrumLargePlate = new ElectrumLargePlate().setRegistryName(location("electrum_large_plate")),
+                            ItemRegistry.ElectrumNugget = new ElectrumNugget().setRegistryName(location("electrum_nugget")),
+                            ItemRegistry.ElectrumPlate = new ElectrumPlate().setRegistryName(location("electrum_plate")),
+                            ItemRegistry.ElectrumTinyDust = new ElectrumTinyDust().setRegistryName(location("electrum_tiny_dust")),
+                            ItemRegistry.ElectrumWire = new ElectrumWire().setRegistryName(location("electrum_wire")),
                             //инвар
                             ItemRegistry.InvarIngot = new InvarIngot().setRegistryName(location("invar_ingot")),
                             ItemRegistry.InvarDust = new InvarDust().setRegistryName(location("invar_dust")),

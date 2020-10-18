@@ -37,5 +37,6 @@ public class ItemRegistry {
             SilverCrushedDust, SilverCurvedPlate, SilverLargePlate, SilverNugget, SilverPlate,
             SilverTinyDust, BauxiteTinyDust, BauxiteCrushedDust, CoalTinyDust, CoalCrushedDust,
             CupronickelDoubleIngot, CupronickelNugget, CupronickelPlate, CupronickelWire,
-            CupronickelTinyDust;
+            CupronickelTinyDust, ElectrumFineWire, ElectrumDoubleIngot, ElectrumCurvedPlate,
+            ElectrumLargePlate, ElectrumPlate, ElectrumNugget, ElectrumTinyDust, ElectrumWire;
 }
