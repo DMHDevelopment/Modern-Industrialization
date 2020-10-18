@@ -16,13 +16,14 @@ import dev.dmhdevelopment.modernindustrialization.items.craft_block.Cupronickel.
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Electrum.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Gold.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Invar.*;
+import dev.dmhdevelopment.modernindustrialization.items.craft_block.Iron.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Lead.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Nickel.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Silver.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Tin.*;
 import dev.dmhdevelopment.modernindustrialization.items.dust.*;
 import dev.dmhdevelopment.modernindustrialization.items.dust.ElectrumIngot;
-import dev.dmhdevelopment.modernindustrialization.items.dust.InvarIngot;
+import dev.dmhdevelopment.modernindustrialization.items.ingot.InvarIngot;
 import dev.dmhdevelopment.modernindustrialization.items.ingot.ManganeseIngot;
 import dev.dmhdevelopment.modernindustrialization.items.dust.SiliconIngot;
 import dev.dmhdevelopment.modernindustrialization.items.ingot.*;
@@ -38,8 +39,6 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import static dev.dmhdevelopment.modernindustrialization.init.ItemRegistry.GoldTinyDust;
-import static dev.dmhdevelopment.modernindustrialization.init.ItemRegistry.TinCurvedPlate;
 
 @Mod("modernindustrialization")
 public class ModernIndustrialization
@@ -225,6 +224,12 @@ public class ModernIndustrialization
                             ItemRegistry.InvarTinyDust = new InvarTinyDust().setRegistryName(location("invar_tiny_dust")),
                             //железо
                             ItemRegistry.IronDust = new IronDust().setRegistryName(location("iron_dust")),
+                            ItemRegistry.IronCrushedDust = new IronCrushedDust().setRegistryName(location("iron_crushed_dust")),
+                            ItemRegistry.IronCurvedPlate = new IronCurvedPlate().setRegistryName(location("iron_curved_plate")),
+                            ItemRegistry.IronDoubleIngot = new IronDoubleIngot().setRegistryName(location("iron_double_ingot")),
+                            ItemRegistry.IronLargePlate = new IronLargePlate().setRegistryName(location("iron_large_plate")),
+                            ItemRegistry.IronPlate = new IronPlate().setRegistryName(location("iron_plate")),
+                            ItemRegistry.IronTinyDust = new IronTinyDust().setRegistryName(location("iron_tiny_dust")),
                             //марганец
                             ItemRegistry.ManganeseIngot = new ManganeseIngot().setRegistryName(location("manganese_ingot")),
                             ItemRegistry.ManganeseDust = new ManganeseDust().setRegistryName(location("manganese_dust")),
