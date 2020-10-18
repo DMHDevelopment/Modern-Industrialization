@@ -41,5 +41,6 @@ public class ItemRegistry {
             ElectrumLargePlate, ElectrumPlate, ElectrumNugget, ElectrumTinyDust, ElectrumWire,
             InvarLargePlate, InvarGear, InvarDoubleIngot, InvarNugget, InvarPlate, InvarTinyDust,
             IronDoubleIngot, IronCurvedPlate, IronCrushedDust, IronLargePlate, IronPlate,
-            IronTinyDust, ManganeseNugget, ManganeseTinyDust, ManganeseCrushedDust;
+            IronTinyDust, ManganeseNugget, ManganeseTinyDust, ManganeseCrushedDust,
+            QuartzCrushedDust, QuartzTinyDust;
 }
