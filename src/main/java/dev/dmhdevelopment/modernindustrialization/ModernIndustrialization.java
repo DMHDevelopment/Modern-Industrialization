@@ -18,6 +18,9 @@ import dev.dmhdevelopment.modernindustrialization.items.craft_block.Gold.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Invar.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Iron.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Lead.*;
+import dev.dmhdevelopment.modernindustrialization.items.craft_block.Manganese.ManganeseCrushedDust;
+import dev.dmhdevelopment.modernindustrialization.items.craft_block.Manganese.ManganeseNugget;
+import dev.dmhdevelopment.modernindustrialization.items.craft_block.Manganese.ManganeseTinyDust;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Nickel.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Silver.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Tin.*;
@@ -233,6 +236,9 @@ public class ModernIndustrialization
                             //марганец
                             ItemRegistry.ManganeseIngot = new ManganeseIngot().setRegistryName(location("manganese_ingot")),
                             ItemRegistry.ManganeseDust = new ManganeseDust().setRegistryName(location("manganese_dust")),
+                            ItemRegistry.ManganeseCrushedDust = new ManganeseCrushedDust().setRegistryName(location("manganese_crushed_dust")),
+                            ItemRegistry.ManganeseNugget = new ManganeseNugget().setRegistryName(location("manganese_nugget")),
+                            ItemRegistry.ManganeseTinyDust = new ManganeseTinyDust().setRegistryName(location("manganese_tiny_dust")),
                             //кварц
                             ItemRegistry.QuartzDust = new QuartzDust().setRegistryName(location("quartz_dust")),
                             //
