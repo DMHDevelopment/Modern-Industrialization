@@ -44,5 +44,8 @@ public class ItemRegistry {
             IronTinyDust, ManganeseNugget, ManganeseTinyDust, ManganeseCrushedDust,
             QuartzCrushedDust, QuartzTinyDust, SaltTinyDust, SaltCrushedDust,
             SiliconPlate, SiliconNugget, SiliconDoubleIngot, SiliconTinyDust, SodiumTinyDust,
-            SodiumNugget;
+            SodiumNugget, Stainless_steelCurvedPlate, Stainless_steelBlade, Stainless_steelBolt,
+            Stainless_steelDoubleIngot, Stainless_steelGear, Stainless_steelLargePlate,
+            Stainless_steelRing, Stainless_steelPlate, Stainless_steelNugget,Stainless_steelRod,
+            Stainless_steelRotor, Stainless_steelTinyDust;
 }

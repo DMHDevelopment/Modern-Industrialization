@@ -33,6 +33,7 @@ import dev.dmhdevelopment.modernindustrialization.items.craft_block.Silicon.Sili
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Silver.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Sodium.SodiumNugget;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Sodium.SodiumTinyDust;
+import dev.dmhdevelopment.modernindustrialization.items.craft_block.Stainless_steel.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Tin.*;
 import dev.dmhdevelopment.modernindustrialization.items.dust.*;
 import dev.dmhdevelopment.modernindustrialization.items.dust.ElectrumIngot;
@@ -272,6 +273,18 @@ public class ModernIndustrialization
                             //суперсталь
                             ItemRegistry.Stainless_steelIngot = new Stainless_steelIngot().setRegistryName(location("stainless_steel_ingot")),
                             ItemRegistry.Stainless_steelDust = new Stainless_steelDust().setRegistryName(location("stainless_steel_dust")),
+                            ItemRegistry.Stainless_steelBlade = new Stainless_steelBlade().setRegistryName(location("stainless_steel_blade")),
+                            ItemRegistry.Stainless_steelBolt = new Stainless_steelBolt().setRegistryName(location("stainless_steel_bolt")),
+                            ItemRegistry.Stainless_steelCurvedPlate = new Stainless_steelCurvedPlate().setRegistryName(location("stainless_steel_curved_plate")),
+                            ItemRegistry.Stainless_steelDoubleIngot = new Stainless_steelDoubleIngot().setRegistryName(location("stainless_steel_double_ingot")),
+                            ItemRegistry.Stainless_steelGear = new Stainless_steelGear().setRegistryName(location("stainless_steel_gear")),
+                            ItemRegistry.Stainless_steelLargePlate = new Stainless_steelLargePlate().setRegistryName(location("stainless_steel_large_plate")),
+                            ItemRegistry.Stainless_steelNugget = new Stainless_steelIngot().setRegistryName(location("stainless_steel_nugget")),
+                            ItemRegistry.Stainless_steelPlate = new Stainless_steelDust().setRegistryName(location("stainless_steel_plate")),
+                            ItemRegistry.Stainless_steelRing = new Stainless_steelIngot().setRegistryName(location("stainless_steel_ring")),
+                            ItemRegistry.Stainless_steelRod = new Stainless_steelRod().setRegistryName(location("stainless_steel_rod")),
+                            ItemRegistry.Stainless_steelRotor = new Stainless_steelRotor().setRegistryName(location("stainless_steel_rotor")),
+                            ItemRegistry.Stainless_steelTinyDust = new Stainless_steelTinyDust().setRegistryName(location("stainless_steel_tiny_dust")),
                             //сталь
                             ItemRegistry.SteelIngot = new SteelIngot().setRegistryName(location("steel_ingot")),
                             ItemRegistry.SteelDust = new SteelDust().setRegistryName(location("steel_dust")),
