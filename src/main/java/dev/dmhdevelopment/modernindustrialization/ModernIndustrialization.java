@@ -18,6 +18,10 @@ import dev.dmhdevelopment.modernindustrialization.items.craft_block.Gold.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Invar.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Iron.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Lead.*;
+import dev.dmhdevelopment.modernindustrialization.items.craft_block.Lignite_coal.Lignite_coal;
+import dev.dmhdevelopment.modernindustrialization.items.craft_block.Lignite_coal.Lignite_coalCrushedDust;
+import dev.dmhdevelopment.modernindustrialization.items.craft_block.Lignite_coal.Lignite_coalDust;
+import dev.dmhdevelopment.modernindustrialization.items.craft_block.Lignite_coal.Lignite_coalTinyDust;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Manganese.ManganeseCrushedDust;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Manganese.ManganeseNugget;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Manganese.ManganeseTinyDust;
@@ -320,7 +324,11 @@ public class ModernIndustrialization
                             ItemRegistry.TitaniumRotor = new TitaniumRotor().setRegistryName(location("titanium_rotor")),
                             ItemRegistry.TitaniumTinyDust = new TitaniumTinyDust().setRegistryName(location("titanium_tiny_dust")),
                             //battery_alloy
-                            //lignite_coal
+                            //бурый уголь
+                            ItemRegistry.Lignite_coalCrushedDust = new Lignite_coalCrushedDust().setRegistryName(location("lignite_coal_tiny_dust")),
+                            ItemRegistry.Lignite_coalDust = new Lignite_coalDust().setRegistryName(location("lignite_coal_dust")),
+                            ItemRegistry.Lignite_coalTinyDust = new Lignite_coalTinyDust().setRegistryName(location("lignite_coal_tiny_dust")),
+                            ItemRegistry.Lignite_coal = new Lignite_coal().setRegistryName(location("lignite_coal")),
                             //красный камень
                             ItemRegistry.RedstoneCrushedDust = new RedstoneCrushedDust().setRegistryName(location("redstone_tiny_dust")),
                             ItemRegistry.RedstoneTinyDust = new RedstoneTinyDust().setRegistryName(location("redstone_tiny_dust"))
