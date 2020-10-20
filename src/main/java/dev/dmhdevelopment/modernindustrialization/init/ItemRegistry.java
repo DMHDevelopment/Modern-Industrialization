@@ -51,5 +51,6 @@ public class ItemRegistry {
             SteelBolt, SteelDoubleIngot, SteelGear, SteelLargePlate, SteelRing, SteelPlate,
             SteelNugget, SteelTinyDust, SteelRod, SteelRotor, TitaniumCurvedPlate, TitaniumBolt,
             TitaniumBlade, TitaniumDoubleIngot, TitaniumGear, TitaniumLargePlate, TitaniumRing,
-            TitaniumPlate, TitaniumNugget, TitaniumRod, TitaniumRotor, TitaniumTinyDust;
+            TitaniumPlate, TitaniumNugget, TitaniumRod, TitaniumRotor, TitaniumTinyDust, RedstoneCrushedDust,
+            RedstoneTinyDust;
 }

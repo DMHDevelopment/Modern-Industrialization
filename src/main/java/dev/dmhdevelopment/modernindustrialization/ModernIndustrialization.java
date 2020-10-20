@@ -24,6 +24,8 @@ import dev.dmhdevelopment.modernindustrialization.items.craft_block.Manganese.Ma
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Nickel.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Quartz.QuartzCrushedDust;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Quartz.QuartzTinyDust;
+import dev.dmhdevelopment.modernindustrialization.items.craft_block.Redstone.RedstoneCrushedDust;
+import dev.dmhdevelopment.modernindustrialization.items.craft_block.Redstone.RedstoneTinyDust;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Salt.SaltCrushedDust;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Salt.SaltTinyDust;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Silicon.SiliconDoubleIngot;
@@ -316,7 +318,12 @@ public class ModernIndustrialization
                             ItemRegistry.TitaniumRing = new TitaniumRing().setRegistryName(location("titanium_ring")),
                             ItemRegistry.TitaniumRod = new TitaniumRod().setRegistryName(location("titanium_rod")),
                             ItemRegistry.TitaniumRotor = new TitaniumRotor().setRegistryName(location("titanium_rotor")),
-                            ItemRegistry.TitaniumTinyDust = new TitaniumTinyDust().setRegistryName(location("titanium_tiny_dust"))
+                            ItemRegistry.TitaniumTinyDust = new TitaniumTinyDust().setRegistryName(location("titanium_tiny_dust")),
+                            //battery_alloy
+                            //lignite_coal
+                            //красный камень
+                            ItemRegistry.RedstoneCrushedDust = new RedstoneCrushedDust().setRegistryName(location("redstone_tiny_dust")),
+                            ItemRegistry.RedstoneTinyDust = new RedstoneTinyDust().setRegistryName(location("redstone_tiny_dust"))
                     );
         }
        /* public static void RegisterOre(final RegistryEvent.Register<Ore> event){
