@@ -36,6 +36,7 @@ import dev.dmhdevelopment.modernindustrialization.items.craft_block.Sodium.Sodiu
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Stainless_steel.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Steel.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Tin.*;
+import dev.dmhdevelopment.modernindustrialization.items.craft_block.Titanium.*;
 import dev.dmhdevelopment.modernindustrialization.items.dust.*;
 import dev.dmhdevelopment.modernindustrialization.items.dust.ElectrumIngot;
 import dev.dmhdevelopment.modernindustrialization.items.ingot.InvarIngot;
@@ -303,7 +304,19 @@ public class ModernIndustrialization
                             ItemRegistry.SteelTinyDust = new SteelTinyDust().setRegistryName(location("steel_tiny_dust")),
                             //титан
                             ItemRegistry.TitaniumIngot = new TitaniumIngot().setRegistryName(location("titanium_ingot")),
-                            ItemRegistry.TitaniumDust = new TitaniumDust().setRegistryName(location("titanium_dust"))
+                            ItemRegistry.TitaniumDust = new TitaniumDust().setRegistryName(location("titanium_dust")),
+                            ItemRegistry.TitaniumBlade = new TitaniumBlade().setRegistryName(location("titanium_blade")),
+                            ItemRegistry.TitaniumBolt = new TitaniumBolt().setRegistryName(location("titanium_bolt")),
+                            ItemRegistry.TitaniumCurvedPlate = new TitaniumCurvedPlate().setRegistryName(location("titanium_curved_plate")),
+                            ItemRegistry.TitaniumDoubleIngot = new TitaniumDoubleIngot().setRegistryName(location("titanium_double_ingot")),
+                            ItemRegistry.TitaniumGear = new TitaniumGear().setRegistryName(location("titanium_gear")),
+                            ItemRegistry.TitaniumLargePlate = new TitaniumLargePlate().setRegistryName(location("titanium_large_plate")),
+                            ItemRegistry.TitaniumNugget = new TitaniumNugget().setRegistryName(location("titanium_nugget")),
+                            ItemRegistry.TitaniumPlate = new TitaniumPlate().setRegistryName(location("titanium_plate")),
+                            ItemRegistry.TitaniumRing = new TitaniumRing().setRegistryName(location("titanium_ring")),
+                            ItemRegistry.TitaniumRod = new TitaniumRod().setRegistryName(location("titanium_rod")),
+                            ItemRegistry.TitaniumRotor = new TitaniumRotor().setRegistryName(location("titanium_rotor")),
+                            ItemRegistry.TitaniumTinyDust = new TitaniumTinyDust().setRegistryName(location("titanium_tiny_dust"))
                     );
         }
        /* public static void RegisterOre(final RegistryEvent.Register<Ore> event){

@@ -49,5 +49,7 @@ public class ItemRegistry {
             Stainless_steelRing, Stainless_steelPlate, Stainless_steelNugget,Stainless_steelRod,
             Stainless_steelRotor, Stainless_steelTinyDust, SteelCurvedPlate, SteelBlade,
             SteelBolt, SteelDoubleIngot, SteelGear, SteelLargePlate, SteelRing, SteelPlate,
-            SteelNugget, SteelTinyDust, SteelRod, SteelRotor;
+            SteelNugget, SteelTinyDust, SteelRod, SteelRotor, TitaniumCurvedPlate, TitaniumBolt,
+            TitaniumBlade, TitaniumDoubleIngot, TitaniumGear, TitaniumLargePlate, TitaniumRing,
+            TitaniumPlate, TitaniumNugget, TitaniumRod, TitaniumRotor, TitaniumTinyDust;
 }
