@@ -5,6 +5,7 @@ import dev.dmhdevelopment.modernindustrialization.items.craft_block.Aluminium.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Antimony.AntimonyCrushedDust;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Antimony.AntimonyNugget;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Antimony.AntimonyTinyDust;
+import dev.dmhdevelopment.modernindustrialization.items.craft_block.Battery_alloy.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Bauxite.BauxiteCrushedDust;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Bauxite.BauxiteTinyDust;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Bronze.*;
@@ -18,9 +19,9 @@ import dev.dmhdevelopment.modernindustrialization.items.craft_block.Gold.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Invar.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Iron.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Lead.*;
-import dev.dmhdevelopment.modernindustrialization.items.craft_block.Lignite_coal.Lignite_coal;
+import dev.dmhdevelopment.modernindustrialization.items.ingot.Lignite_coal;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Lignite_coal.Lignite_coalCrushedDust;
-import dev.dmhdevelopment.modernindustrialization.items.craft_block.Lignite_coal.Lignite_coalDust;
+import dev.dmhdevelopment.modernindustrialization.items.dust.Lignite_coalDust;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Lignite_coal.Lignite_coalTinyDust;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Manganese.ManganeseCrushedDust;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Manganese.ManganeseNugget;
@@ -323,7 +324,14 @@ public class ModernIndustrialization
                             ItemRegistry.TitaniumRod = new TitaniumRod().setRegistryName(location("titanium_rod")),
                             ItemRegistry.TitaniumRotor = new TitaniumRotor().setRegistryName(location("titanium_rotor")),
                             ItemRegistry.TitaniumTinyDust = new TitaniumTinyDust().setRegistryName(location("titanium_tiny_dust")),
-                            //battery_alloy
+                            //Аккумуляторный сплав
+                            ItemRegistry.Battery_alloyIngot = new Battery_alloyIngot().setRegistryName(location("battery_alloy_ingot")),
+                            ItemRegistry.Battery_alloyDust = new Battery_alloyDust().setRegistryName(location("battery_alloy_dust")),
+                            ItemRegistry.Battery_alloyCurvedPlate = new Battery_alloyCurvedPlate().setRegistryName(location("battery_alloy_curved_plate")),
+                            ItemRegistry.Battery_alloyDoubleIngot = new Battery_alloyDoubleIngot().setRegistryName(location("battery_alloy_double_ingot")),
+                            ItemRegistry.Battery_alloyNugget = new Battery_alloyNugget().setRegistryName(location("battery_alloy_nugget")),
+                            ItemRegistry.Battery_alloyPlate = new Battery_alloyPlate().setRegistryName(location("battery_alloy_plate")),
+                            ItemRegistry.Battery_alloyTinyDust = new Battery_alloyTinyDust().setRegistryName(location("battery_alloy_tiny_dust")),
                             //бурый уголь
                             ItemRegistry.Lignite_coalCrushedDust = new Lignite_coalCrushedDust().setRegistryName(location("lignite_coal_tiny_dust")),
                             ItemRegistry.Lignite_coalDust = new Lignite_coalDust().setRegistryName(location("lignite_coal_dust")),

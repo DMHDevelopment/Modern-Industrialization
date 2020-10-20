@@ -1,4 +1,4 @@
-package dev.dmhdevelopment.modernindustrialization.items.craft_block.Lignite_coal;
+package dev.dmhdevelopment.modernindustrialization.items.ingot;
 
 import dev.dmhdevelopment.modernindustrialization.utils.ModernIndustrializationCreativeTab;
 import net.minecraft.item.Item;

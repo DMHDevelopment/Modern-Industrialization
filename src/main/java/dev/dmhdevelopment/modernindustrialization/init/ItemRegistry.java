@@ -10,12 +10,13 @@ public class ItemRegistry {
             TinIngot, CopperIngot, NickelIngot, AntimonyIngot,
             LeadIngot, SilverIngot, CupronickelIngot, CupronickelDust,
             ElectrumDust, ElectrumIngot, InvarIngot,  ManganeseIngot,
-            SiliconIngot, SodiumIngot, Stainless_steelIngot, SteelIngot, TitaniumIngot;
+            SiliconIngot, SodiumIngot, Stainless_steelIngot, SteelIngot, TitaniumIngot,
+            Battery_alloyIngot;
     @ObjectHolder("modernindustrialization:dust")
     public static Item GoldDust,  Aluminum_Dust, BronzeDust, ChromeDust, AntimonyDust, CopperDust,
             LeadDust, NickelDust, SilverDust, TinDust, BauxiteDust, CoalDust, InvarDust,
             IronDust, ManganeseDust, QuartzDust, SaltDust, SiliconDust, SodiumDust,
-            Stainless_steelDust, SteelDust, TitaniumDust;
+            Stainless_steelDust, SteelDust, TitaniumDust, Battery_alloyDust;
     //public static OreBlock AluminiumOre;
     @ObjectHolder("modernindustrialization:craft_block")
     public static Item AluminiumBolt, AluminiumBlade, AluminiumCrushedDust, AluminiumCurvedPlate,
@@ -53,5 +54,6 @@ public class ItemRegistry {
             TitaniumBlade, TitaniumDoubleIngot, TitaniumGear, TitaniumLargePlate, TitaniumRing,
             TitaniumPlate, TitaniumNugget, TitaniumRod, TitaniumRotor, TitaniumTinyDust, RedstoneCrushedDust,
             RedstoneTinyDust, Lignite_coalTinyDust, Lignite_coalCrushedDust, Lignite_coalDust,
-            Lignite_coal;
+            Lignite_coal, Battery_alloyNugget, Battery_alloyDoubleIngot, Battery_alloyCurvedPlate,
+            Battery_alloyTinyDust, Battery_alloyPlate;
 }
