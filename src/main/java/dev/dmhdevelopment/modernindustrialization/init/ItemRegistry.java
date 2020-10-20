@@ -47,5 +47,7 @@ public class ItemRegistry {
             SodiumNugget, Stainless_steelCurvedPlate, Stainless_steelBlade, Stainless_steelBolt,
             Stainless_steelDoubleIngot, Stainless_steelGear, Stainless_steelLargePlate,
             Stainless_steelRing, Stainless_steelPlate, Stainless_steelNugget,Stainless_steelRod,
-            Stainless_steelRotor, Stainless_steelTinyDust;
+            Stainless_steelRotor, Stainless_steelTinyDust, SteelCurvedPlate, SteelBlade,
+            SteelBolt, SteelDoubleIngot, SteelGear, SteelLargePlate, SteelRing, SteelPlate,
+            SteelNugget, SteelTinyDust, SteelRod, SteelRotor;
 }

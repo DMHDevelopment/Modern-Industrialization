@@ -34,6 +34,7 @@ import dev.dmhdevelopment.modernindustrialization.items.craft_block.Silver.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Sodium.SodiumNugget;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Sodium.SodiumTinyDust;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Stainless_steel.*;
+import dev.dmhdevelopment.modernindustrialization.items.craft_block.Steel.*;
 import dev.dmhdevelopment.modernindustrialization.items.craft_block.Tin.*;
 import dev.dmhdevelopment.modernindustrialization.items.dust.*;
 import dev.dmhdevelopment.modernindustrialization.items.dust.ElectrumIngot;
@@ -288,6 +289,18 @@ public class ModernIndustrialization
                             //сталь
                             ItemRegistry.SteelIngot = new SteelIngot().setRegistryName(location("steel_ingot")),
                             ItemRegistry.SteelDust = new SteelDust().setRegistryName(location("steel_dust")),
+                            ItemRegistry.SteelBlade = new SteelIngot().setRegistryName(location("steel_blade")),
+                            ItemRegistry.SteelBolt = new SteelDust().setRegistryName(location("steel_bolt")),
+                            ItemRegistry.SteelCurvedPlate = new SteelIngot().setRegistryName(location("steel_curved_plate")),
+                            ItemRegistry.SteelDoubleIngot = new SteelDoubleIngot().setRegistryName(location("steel_double_ingot")),
+                            ItemRegistry.SteelGear = new SteelGear().setRegistryName(location("steel_gear")),
+                            ItemRegistry.SteelLargePlate = new SteelLargePlate().setRegistryName(location("steel_large_plate")),
+                            ItemRegistry.SteelNugget = new SteelNugget().setRegistryName(location("steel_nugget")),
+                            ItemRegistry.SteelPlate = new SteelPlate().setRegistryName(location("steel_plate")),
+                            ItemRegistry.SteelRing = new SteelRing().setRegistryName(location("steel_ring")),
+                            ItemRegistry.SteelRod= new SteelRod().setRegistryName(location("steel_rod")),
+                            ItemRegistry.SteelRotor = new SteelRotor().setRegistryName(location("steel_rotor")),
+                            ItemRegistry.SteelTinyDust = new SteelTinyDust().setRegistryName(location("steel_tiny_dust")),
                             //титан
                             ItemRegistry.TitaniumIngot = new TitaniumIngot().setRegistryName(location("titanium_ingot")),
                             ItemRegistry.TitaniumDust = new TitaniumDust().setRegistryName(location("titanium_dust"))
