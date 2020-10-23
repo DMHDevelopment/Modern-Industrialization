@@ -205,9 +205,9 @@ public class ModernIndustrialization
                             ItemRegistry.SilverCrushedDust = new SilverCrushedDust().setRegistryName(location("silver_crushed_dust")),
                             ItemRegistry.SilverCurvedPlate = new SilverCurvedPlate().setRegistryName(location("silver_curved_plate")),
                             ItemRegistry.SilverDoubleIngot = new SilverDoubleIngot().setRegistryName(location("silver_double_ingot")),
-                            ItemRegistry.SilverLargePlate = new SilverLargePlate().setRegistryName(location("silver_dust")),
-                            ItemRegistry.SilverNugget = new SilverNugget().setRegistryName(location("silver_ingot")),
-                            ItemRegistry.SilverPlate = new SilverPlate().setRegistryName(location("silver_dust")),
+                            ItemRegistry.SilverLargePlate = new SilverLargePlate().setRegistryName(location("silver_large_plate")),
+                            ItemRegistry.SilverNugget = new SilverNugget().setRegistryName(location("silver_nugget")),
+                            ItemRegistry.SilverPlate = new SilverPlate().setRegistryName(location("silver_plate")),
                             ItemRegistry.SilverTinyDust = new SilverTinyDust().setRegistryName(location("silver_tiny_dust")),
                             //баксит
                             ItemRegistry.BauxiteDust = new BauxiteDust().setRegistryName(location("bauxite_dust")),
