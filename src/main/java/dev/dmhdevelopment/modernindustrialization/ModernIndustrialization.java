@@ -186,9 +186,9 @@ public class ModernIndustrialization
                             //антимоний
                             ItemRegistry.AntimonyIngot = new AntimonyIngot().setRegistryName(location("antimony_ingot")),
                             ItemRegistry.AntimonyDust = new AntimonyDust().setRegistryName(location("antimony_dust")),
-                            ItemRegistry.AntimonyCrushedDust = new AntimonyCrushedDust().setRegistryName(location("antimony_ingot")),
-                            ItemRegistry.AntimonyNugget = new AntimonyNugget().setRegistryName(location("antimony_dust")),
-                            ItemRegistry.AntimonyTinyDust = new AntimonyTinyDust().setRegistryName(location("antimony_ingot")),
+                            ItemRegistry.AntimonyCrushedDust = new AntimonyCrushedDust().setRegistryName(location("antimony_crushed_dust")),
+                            ItemRegistry.AntimonyNugget = new AntimonyNugget().setRegistryName(location("antimony_nugget")),
+                            ItemRegistry.AntimonyTinyDust = new AntimonyTinyDust().setRegistryName(location("antimony_tiny_dust")),
                             //свинец
                             ItemRegistry.LeadIngot = new LeadIngot().setRegistryName(location("lead_ingot")),
                             ItemRegistry.LeadDust = new LeadDust().setRegistryName(location("lead_dust")),
