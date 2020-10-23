@@ -342,12 +342,7 @@ public class ModernIndustrialization
                             ItemRegistry.RedstoneTinyDust = new RedstoneTinyDust().setRegistryName(location("redstone_tiny_dust"))
                     );
         }
-       /* public static void RegisterOre(final RegistryEvent.Register<Ore> event){
-            event.getRegistry().registerAll(
 
-            );
-        }
-        */
         private static ResourceLocation location(String name) {
             return new ResourceLocation(MOD_ID, name);
         }

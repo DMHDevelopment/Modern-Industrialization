@@ -15,4 +15,3 @@ public class BlockNew extends Block
         return 1;
     }
 }
-}
