@@ -127,9 +127,9 @@ public class ModernIndustrialization
                             ItemRegistry.ChromeCrushedDust = new ChromeCrushedDust().setRegistryName(location("chrome_crushed_dust")),
                             ItemRegistry.ChromeDoubleIngot = new ChromeDoubleIngot().setRegistryName(location("chrome_double_ingot")),
                             ItemRegistry.ChromeLargePlate = new ChromeLargePlate().setRegistryName(location("chrome_large_plate")),
-                            ItemRegistry.ChromeNugget = new ChromeNugget().setRegistryName(location("chrome_crushed_dust")),
-                            ItemRegistry.ChromePlate = new ChromePlate().setRegistryName(location("chrome_double_ingot")),
-                            ItemRegistry.ChromeTinyDust = new ChromeTinyDust().setRegistryName(location("chrome_large_plate")),
+                            ItemRegistry.ChromeNugget = new ChromeNugget().setRegistryName(location("chrome_nugget")),
+                            ItemRegistry.ChromePlate = new ChromePlate().setRegistryName(location("chrome_plate")),
+                            ItemRegistry.ChromeTinyDust = new ChromeTinyDust().setRegistryName(location("chrome_tiny_dust")),
                             //золото
                             ItemRegistry.GoldDust = new GoldDust().setRegistryName(location("gold_dust")),
                             ItemRegistry.GoldCrushedDust = new GoldCrushedDust().setRegistryName(location("gold_crushed_dust")),
