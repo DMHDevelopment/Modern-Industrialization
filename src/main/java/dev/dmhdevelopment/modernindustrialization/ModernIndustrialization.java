@@ -333,7 +333,7 @@ public class ModernIndustrialization
                             ItemRegistry.Battery_alloyPlate = new Battery_alloyPlate().setRegistryName(location("battery_alloy_plate")),
                             ItemRegistry.Battery_alloyTinyDust = new Battery_alloyTinyDust().setRegistryName(location("battery_alloy_tiny_dust")),
                             //бурый уголь
-                            ItemRegistry.Lignite_coalCrushedDust = new Lignite_coalCrushedDust().setRegistryName(location("lignite_coal_tiny_dust")),
+                            ItemRegistry.Lignite_coalCrushedDust = new Lignite_coalCrushedDust().setRegistryName(location("Lignite_coal_crushed_dust")),
                             ItemRegistry.Lignite_coalDust = new Lignite_coalDust().setRegistryName(location("lignite_coal_dust")),
                             ItemRegistry.Lignite_coalTinyDust = new Lignite_coalTinyDust().setRegistryName(location("lignite_coal_tiny_dust")),
                             ItemRegistry.Lignite_coal = new Lignite_coal().setRegistryName(location("lignite_coal")),
