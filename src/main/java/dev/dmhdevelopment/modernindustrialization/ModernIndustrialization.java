@@ -263,7 +263,7 @@ public class ModernIndustrialization
                             ItemRegistry.QuartzDust = new QuartzDust().setRegistryName(location("quartz_dust")),
                             ItemRegistry.QuartzCrushedDust = new QuartzCrushedDust().setRegistryName(location("quartz_crushed_dust")),
                             ItemRegistry.QuartzTinyDust = new QuartzTinyDust().setRegistryName(location("quartz_tiny_dust")),
-                            //salt(я незнаю как по русски)
+                            //salt(я незнаю как на Русском)
                             ItemRegistry.SaltDust = new SaltDust().setRegistryName(location("salt_dust")),
                             ItemRegistry.SaltCrushedDust = new SaltCrushedDust().setRegistryName(location("salt_crushed_dust")),
                             ItemRegistry.SaltTinyDust = new SaltTinyDust().setRegistryName(location("salt_tiny_dust")),
