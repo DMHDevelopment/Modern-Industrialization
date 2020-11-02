@@ -4,6 +4,8 @@ import dev.dmhdevelopment.modernindustrialization.init.ItemRegistry;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 
+import javax.swing.*;
+
 public class ModernIndustrializationCreativeTab {
     public static final ItemGroup ModernIndustrializationCreativeTab = new ItemGroup("mod_tab") {
         @Override
