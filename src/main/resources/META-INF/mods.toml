@@ -16,7 +16,7 @@ modId="modernindustrialization" #mandatory
 # The version number of the mod - there's a few well known ${} variables useable here or just hardcode it
 version="${file.jarVersion}" #mandatory
  # A display name for the mod
-displayName="Moden Industrialization: Reforged" #mandatory
+displayName="Modern Industrialization: Reforged" #mandatory
 # A URL to query for updates for this mod. See the JSON update specification <here>
 updateJSONURL="http://github.com/DMHDevelopment/Modern-Industrialization" #optional
 # A URL for the "homepage" for this mod, displayed in the mod UI
