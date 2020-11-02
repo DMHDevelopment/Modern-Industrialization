@@ -55,5 +55,5 @@ public class ItemRegistry {
             TitaniumPlate, TitaniumNugget, TitaniumRod, TitaniumRotor, TitaniumTinyDust, RedstoneCrushedDust,
             RedstoneTinyDust, Lignite_coalTinyDust, Lignite_coalCrushedDust, Lignite_coalDust,
             Lignite_coal, Battery_alloyNugget, Battery_alloyDoubleIngot, Battery_alloyCurvedPlate,
-            Battery_alloyTinyDust, Battery_alloyPlate;
+            Battery_alloyTinyDust, Battery_alloyPlate, AluminumOre;
 }
