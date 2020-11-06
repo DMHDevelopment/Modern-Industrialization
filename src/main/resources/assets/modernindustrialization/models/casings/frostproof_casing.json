@@ -1,0 +1,7 @@
+{
+  "textures": {
+    "bottom": "modernindustrialization:blocks/casings/frostproof/bottom.png",
+    "side": "modernindustrialization:blocks/casings/frostproof/side.png",
+    "top": "modernindustrialization:blocks/casings/frostproof/top.png"
+  }
+}

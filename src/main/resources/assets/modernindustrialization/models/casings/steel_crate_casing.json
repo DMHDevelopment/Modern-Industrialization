@@ -1,0 +1,7 @@
+{
+  "textures": {
+    "bottom": "modernindustrialization:blocks/casings/steel_crate/bottom.png",
+    "side": "modernindustrialization:blocks/casings/steel_crate/side.png",
+    "top": "modernindustrialization:blocks/casings/steel_crate/top.png"
+  }
+}

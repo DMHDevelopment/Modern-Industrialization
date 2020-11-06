@@ -1,0 +1,7 @@
+{
+  "textures": {
+    "bottom": "modernindustrialization:blocks/casings/hv/bottom.png",
+    "side": "modernindustrialization:blocks/casings/hv/side.png",
+    "top": "modernindustrialization:blocks/casings/hv/top.png"
+  }
+}

@@ -12,6 +12,6 @@ public class FirebricksCasing extends Block {
                 .hardnessAndResistance(2.0f)
                 .lightValue(14)
         );
-        setRegistryName("bricked_bronze_casing");
+        setRegistryName("firebricks_casing");
     }
 }
